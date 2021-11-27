@@ -1,15 +1,38 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors'); 
+const path = require('path');
+const db = require("./models");
+require('dotenv').config()
 
-var app = express();
+const app = express();
 
-var PORT = process.env.PORT || 3001;
+var corsOptions = {
+  origin: 'http://localhost:3000'
+}
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+const PORT = process.env.PORT || 3001;
+
+app.use(cors(corsOptions));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+db.mongoose
+.connect(process.env.MONGO_CONNECTION_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => {
+  console.log("Successfully connect to MongoDB.");
+})
+.catch(err => {
+  console.error("Connection error", err);
+  process.exit();
+});
 
 app.get('/', (req, res) => {
-  console.log('Hello World');
+  res.json('Hello World');
 });
 
 app.listen(PORT, () => {
