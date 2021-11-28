@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 });
 
 require('./routes/authRoutes')(app);
+require('./routes/friendRoutes')(app);
 
 app.listen(process.env.PORT, () => {
   console.log('App listening on PORT: ' + process.env.PORT);
