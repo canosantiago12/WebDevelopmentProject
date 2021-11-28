@@ -16,22 +16,30 @@ const NavBar = ({currentUser}) => {
     return (
         <>
             <Nav>
-                <NavLink to="/">
-                    <img src={Logo} alt='logo'/>
-                </NavLink>
+                {currentUser ?
+                    <NavLink to="/profile">
+                        <img src={Logo} alt='logo'/>
+                    </NavLink>
+                :
+                    <NavLink to="/">
+                        <img src={Logo} alt='logo'/>
+                    </NavLink>
+                }
                 <NavBtnGrp>
                     {currentUser ?
                         <NavBtn>
                             <NavBtnLink to="/" onClick={logOut}>Logout</NavBtnLink>
                         </NavBtn>
                         :
-                        <NavBtn>
-                            <NavBtnLink to="/login">Log In</NavBtnLink>
-                        </NavBtn>
+                        <>
+                            <NavBtn>
+                                <NavBtnLink to="/login">Log In</NavBtnLink>
+                            </NavBtn>
+                            <NavBtn>
+                                <NavBtnLink to="/register">Create new account</NavBtnLink>
+                            </NavBtn>
+                        </>
                     }
-                    <NavBtn>
-                        <NavBtnLink to="/register">Create new account</NavBtnLink>
-                    </NavBtn>
                 </NavBtnGrp>
             </Nav>
         </>
