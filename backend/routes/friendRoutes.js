@@ -11,6 +11,7 @@ module.exports = function(app) {
     next();
   });
 
+  app.get("/api/friend/user", [authJwt.verifyToken], controller.findUser)
   app.get("/api/friend/friends", [authJwt.verifyToken], controller.findFriends);
   app.post("/api/friend/makeFriendRequest", [authJwt.verifyToken], controller.makeFriendRequest);
   app.post("/api/friend/handleFriendRequest", [authJwt.verifyToken], controller.handleFriendRequest);

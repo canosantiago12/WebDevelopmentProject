@@ -2,6 +2,17 @@ const db = require("../models");
 
 const User = db.user;
 
+exports.findUser = async (req, res) => {
+  const users = await User.find();
+  const foundUsers = users.filter(el => el.userName.includes(req.query.q))
+  
+  res.status(200).send(foundUsers.map(el => ({
+    userId: el._id,
+    userName: el.userName,
+    profilePicture: el.profilePicture
+  })));
+}
+
 exports.findFriends = async (req, res) => {
   const user = await User.findById(req.userId);
 

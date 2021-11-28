@@ -8,6 +8,7 @@ const User = db.user;
 exports.signup = (req, res) => {
   const user = new User({
     userName: req.body.userName,
+    profilePicture: req.body.profilePicture,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8)
   });
