@@ -1,11 +1,17 @@
-import Home from "./components/Home";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
 
 const routes = [
   {
-    name: 'Home',
-    to: '/home',
-    component: <Home />,
+    name: 'Landing',
+    to: '/',
+    component: <Landing />,
   },
+  {
+    name: 'Login',
+    to: '/login',
+    component: <Login />,
+  }
 ];
 
 export { routes };
