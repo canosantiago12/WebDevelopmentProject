@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
 
 
-const NavBar = ({currentUser}) => {
+const NavBar = ({ currentUser }) => {
     const history = useNavigate();
     const logOut = () => {
         AuthService.logout();

@@ -1,7 +1,7 @@
 import React from 'react'
 import { LandingPage } from './PageStyle'
 
-const Landing = () => {
+const Landing = ({ currentUser }) => {
     return (
         <>
             <LandingPage>

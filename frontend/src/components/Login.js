@@ -17,7 +17,7 @@ const required = (value) => {
   }
 };
 
-const Login = (props) => {
+const Login = ({ currentUser }) => {
   const form = useRef();
   const checkBtn = useRef();
   const history = useNavigate();

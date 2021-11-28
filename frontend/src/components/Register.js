@@ -48,7 +48,7 @@ const vpassword = (value) => {
   }
 };
 
-const Register = (props) => {
+const Register = ({ currentUser }) => {
   const form = useRef();
   const checkBtn = useRef();
 
@@ -93,7 +93,7 @@ const Register = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(username, email, password).then(
+      AuthService.register(username, email, password, profilePicture).then(
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
@@ -123,7 +123,7 @@ const Register = (props) => {
                       <img
                       src={profilePicture ? profilePicture :"//ssl.gstatic.com/accounts/ui/avatar_2x.png"}
                       alt="profile-img"
-                      className="profile-img-card"
+                      className="profile-img-card-register"
                       onClick={onClickToggleProfilePicture}
                       />
                       {showProfilePictures ? 
@@ -137,35 +137,35 @@ const Register = (props) => {
                               <div className="modal-body">
                                 <div className="row">
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-1" />
                                   </div>
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-2" />
                                   </div>
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
-                                  </div>
-                                </div>
-                                <div className="row mt-2">
-                                  <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
-                                  </div>
-                                  <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
-                                  </div>
-                                  <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-3" />
                                   </div>
                                 </div>
                                 <div className="row mt-2">
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-4" />
                                   </div>
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-5" />
                                   </div>
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-6" />
+                                  </div>
+                                </div>
+                                <div className="row mt-2">
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-7" />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-8" />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-9" />
                                   </div>
                                 </div>
                               </div>

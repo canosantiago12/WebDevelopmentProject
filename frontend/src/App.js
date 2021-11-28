@@ -8,6 +8,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AuthService from './services/auth.service';
 
 import './App.css';
+import Login from './components/Login';
+import Register from './components/Register';
+import Landing from './pages/LandingPage';
+import Profile from './pages/Profile';
+import BoardUser from './pages/UserDashboard';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -24,9 +29,15 @@ function App() {
     <Router>
       <NavBar currentUser={currentUser}/>
       <Routes>
-        {routes.map((route) => (
+        <Route path='/login' element={<Login currentUser={currentUser}/>} />
+        <Route path='/register' element={<Register currentUser={currentUser}/>} />
+        <Route path='/' element={<Landing currentUser={currentUser}/>} />
+        <Route path='/profile' element={<Profile currentUser={currentUser}/>} />
+        <Route path='/user' element={<BoardUser currentUser={currentUser}/>} />
+
+        {/*routes.map((route) => (
           <Route path={route.to} element={route.component} />
-        ))}
+        ))*/}
       </Routes>
       {/* <Footer /> */}
     </Router>

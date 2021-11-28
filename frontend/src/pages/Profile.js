@@ -1,11 +1,9 @@
 import React from "react";
-import AuthService from "../services/auth.service";
 import { ProfilePage } from './PageStyle';
 
 import ejemplo from '../assets/images/MHA.png';
 
-const Profile = () => {
-  const currentUser = AuthService.getCurrentUser();
+const Profile = ({ currentUser }) => {
 
   return (
     <>
@@ -16,12 +14,12 @@ const Profile = () => {
               <div className="col-md-3 ps-5">
                 <div className="card card-profile p-4">
                   <h1>Your Profile:</h1>
-                  <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                  <img src={currentUser && currentUser.profilePicture} className="profile-img-card"/>
                   <h2>
-                    <strong>{currentUser.userName}</strong>
+                    <strong>{currentUser && currentUser.userName}</strong>
                   </h2>
                   <p>
-                    <strong>Email:</strong> {currentUser.email}
+                    <strong>Email:</strong> { currentUser && currentUser.email}
                   </p>
                 </div>
               </div>
@@ -30,128 +28,136 @@ const Profile = () => {
                   <div className="card card-profile mb-3">
                     <h1 className="text-center pt-4">My Anime List</h1>
                     <hr/>
-                    <div className="wrapper mx-5 py-2">
-                      <section id="section1">
-                        <a href="#section3">‹</a>
-                        <div className="itemAnime">
-                          <img src={ejemplo} alt="anime"/>
-                          <p className="animeTitle">My Hero Academia</p>
-                        </div>
-                        <div className="itemAnime">
-                          <img src={ejemplo} alt="anime"/>
-                          <p className="animeTitle">My Hero Academia</p>
-                        </div>
-                        <div className="itemAnime">
-                          <img src={ejemplo} alt="anime"/>
-                          <p className="animeTitle">My Hero Academia</p>
-                        </div>
-                        <div className="itemAnime">
-                          <img src={ejemplo} alt="anime"/>
-                          <p className="animeTitle">My Hero Academia</p>
-                        </div>
-                        <div className="itemAnime">
-                          <img src={ejemplo} alt="anime"/>
-                          <p className="animeTitle">My Hero Academia</p>
-                        </div>
-                        <a href="#section2">›</a>
-                      </section>
-                      <section id="section2">
-                        <a href="#section1" className="arrow__btn">‹</a>
-                        <div className="itemAnime">
-                          <img src="" alt="anime"/>
-                          <p className="animeTitle">My Hero Academia</p>
-                        </div>
-                        <a href="#section3" className="arrow__btn">›</a>
-                      </section>
-                      <section id="section3">
-                        <a href="#section2" className="arrow__btn">‹</a>
-                        <div className="itemAnime">
-                          <img src="" alt="anime"/>
-                          <p className="animeTitle">My Hero Academia</p>
-                        </div>
-                        <a href="#section1" className="arrow__btn">›</a>
-                      </section>
-                    </div>
+                    {currentUser && currentUser.animeList ?
+                      <div className="wrapper mx-5 py-2">
+                        <section id="section1">
+                          <a href="#section3">‹</a>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <a href="#section2">›</a>
+                        </section>
+                        <section id="section2">
+                          <a href="#section1" className="arrow__btn">‹</a>
+                          <div className="itemAnime">
+                            <img src="" alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <a href="#section3" className="arrow__btn">›</a>
+                        </section>
+                        <section id="section3">
+                          <a href="#section2" className="arrow__btn">‹</a>
+                          <div className="itemAnime">
+                            <img src="" alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <a href="#section1" className="arrow__btn">›</a>
+                        </section>
+                      </div>
+                      :
+                      <p>Eres un pnedejo</p>
+                    }
                   </div>
                 </div>
                 <div className="row">
                   <div className="card card-profile">
                     <h1 className="text-center pt-4">My Friends</h1>
                     <hr/>
-                    <div className="wrapper mx-5">
-                      <section id="section1_car2">
-                        <a href="#section3_car2" className="arrow__btn">‹</a>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <a href="#section2_car2" className="arrow__btn">›</a>
-                      </section>
-                      <section id="section2_car2">
-                        <a href="#section1_car2" className="arrow__btn">‹</a>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <a href="#section3_car2" className="arrow__btn">›</a>
-                      </section>
-                      <section id="section3_car2">
-                        <a href="#section2_car2" className="arrow__btn">‹</a>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <div className="itemFriend">
-                          <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                          <p className="text-center">CACA</p>
-                        </div>
-                        <a href="#section1_car2" className="arrow__btn">›</a>
-                      </section>
-                    </div>
+                    {currentUser && currentUser.friends ?
+                      <div className="wrapper mx-5">
+                        <section id="section1_car2">
+                          <a href="#section3_car2" className="arrow__btn">‹</a>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <a href="#section2_car2" className="arrow__btn">›</a>
+                        </section>
+                        <section id="section2_car2">
+                          <a href="#section1_car2" className="arrow__btn">‹</a>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <a href="#section3_car2" className="arrow__btn">›</a>
+                        </section>
+                        <section id="section3_car2">
+                          <a href="#section2_car2" className="arrow__btn">‹</a>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <div className="itemFriend">
+                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
+                            <p className="text-center">CACA</p>
+                          </div>
+                          <a href="#section1_car2" className="arrow__btn">›</a>
+                        </section>
+                      </div>
+                    :
+                      <p>Eres un pendejo</p>
+                    }
                   </div>
                 </div>
               </div>
