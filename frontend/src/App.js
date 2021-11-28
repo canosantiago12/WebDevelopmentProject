@@ -28,7 +28,7 @@ function App() {
           <Route path={route.to} element={route.component} />
         ))}
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 };
