@@ -4,7 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import { RegisterPage } from "../pages/PageStyle";
-
+import pp from "../assets/profile-pictures/profilePreset_1.jpg"
 import AuthService from "../services/auth.service";
 
 
@@ -57,6 +57,17 @@ const Register = (props) => {
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
+  const [showProfilePictures, setShowProfilePictures] = useState(false);
+  const [profilePicture, setProfilePicture] = useState();
+
+  const onClickToggleProfilePicture = () => {
+    setShowProfilePictures(!showProfilePictures);
+  };
+
+  const onClickProfilePicture = (pp) => {
+    setShowProfilePictures(!showProfilePictures);
+    setProfilePicture(pp)
+  };
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -110,11 +121,60 @@ const Register = (props) => {
                 <div className="col-md-12"></div>
                   <div className="card card-container m-auto">
                       <img
-                      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                      src={profilePicture ? profilePicture :"//ssl.gstatic.com/accounts/ui/avatar_2x.png"}
                       alt="profile-img"
                       className="profile-img-card"
+                      onClick={onClickToggleProfilePicture}
                       />
-
+                      {showProfilePictures ? 
+                        <div className="modal" style={{display: "block"}} tabIndex="-1">
+                          <div className="modal-dialog">
+                            <div className="modal-content">
+                              <div className="modal-header">
+                                <h5 className="modal-title">Select Your Profile Picture</h5>
+                                <button type="button" className="btn-close" onClick={onClickToggleProfilePicture} aria-label="Close"></button>
+                              </div>
+                              <div className="modal-body">
+                                <div className="row">
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                </div>
+                                <div className="row mt-2">
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                </div>
+                                <div className="row mt-2">
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      :
+                        <></>
+                      } 
                       <Form onSubmit={handleRegister} ref={form}>
                           {!successful && (
                               <div>
