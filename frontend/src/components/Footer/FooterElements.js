@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterComp = styled.footer`
-    background: #000;
+    background: #191A1A;
     height: 60px;
     display: flex;
     z-index: 100;

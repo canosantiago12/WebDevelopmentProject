@@ -10,11 +10,52 @@ const backgroundMovingAnimation = keyframes`
 `
 
 export const LandingPage = styled.div`
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 90vh;
     position: relative;
     background: url(${ imgLanding }) no-repeat center;
-    background-color: rgba(0, 0, 0, 0.2);
+    animation: ${ backgroundMovingAnimation } 30s ease infinite;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+`
+
+export const LoginPage = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    background: url(${ imgLanding }) no-repeat center;
+    animation: ${ backgroundMovingAnimation } 30s ease infinite;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+`
+
+export const RegisterPage = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    background: url(${ imgLanding }) no-repeat center;
     animation: ${ backgroundMovingAnimation } 30s ease infinite;
 
     .overlay {

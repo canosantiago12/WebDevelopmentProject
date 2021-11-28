@@ -1,24 +1,38 @@
-import React, { useState } from 'react'
-import { Nav, NavLink, Bars, NavBtn, NavBtnLink } from './NavbarElements';
+import React from 'react'
+import { Nav, NavLink, NavBtn, NavBtnLink, NavBtnGrp } from './NavbarElements';
+import AuthService from '../../services/auth.service';
+import { useNavigate } from 'react-router-dom';
+import Logo from '../../assets/images/logo.svg';
 
-const NavBar = () => {
-    const [loggeado, setLoggeado] = useState(false);
+
+const NavBar = ({currentUser}) => {
+    const history = useNavigate();
+    const logOut = () => {
+        AuthService.logout();
+        history("/");
+        window.location.reload();
+    };
+    
     return (
         <>
             <Nav>
                 <NavLink to="/">
-                    <h1>Logo</h1>
+                    <img src={Logo} alt='logo'/>
                 </NavLink>
-                <Bars />
-                {loggeado ?
-                <NavBtn>
-                    <NavBtnLink onClick={() => setLoggeado(false)} to="/">Logout</NavBtnLink>
-                </NavBtn>
-                :
-                <NavBtn>
-                    <NavBtnLink onClick={() => setLoggeado(true)} to="/login">Login</NavBtnLink>
-                </NavBtn>
-                }
+                <NavBtnGrp>
+                    {currentUser ?
+                        <NavBtn>
+                            <NavBtnLink to="/" onClick={logOut}>Logout</NavBtnLink>
+                        </NavBtn>
+                        :
+                        <NavBtn>
+                            <NavBtnLink to="/login">Log In</NavBtnLink>
+                        </NavBtn>
+                    }
+                    <NavBtn>
+                        <NavBtnLink to="/register">Create new account</NavBtnLink>
+                    </NavBtn>
+                </NavBtnGrp>
             </Nav>
         </>
     )

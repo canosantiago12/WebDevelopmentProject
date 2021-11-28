@@ -11,8 +11,6 @@ var corsOptions = {
   origin: 'http://localhost:3000'
 }
 
-const PORT = process.env.PORT || 3001;
-
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
@@ -37,6 +35,6 @@ app.get('/', (req, res) => {
 
 require('./routes/authRoutes')(app);
 
-app.listen(PORT, () => {
-  console.log('App listening on PORT: ' + PORT);
+app.listen(process.env.PORT, () => {
+  console.log('App listening on PORT: ' + process.env.PORT);
 });
