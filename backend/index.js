@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors'); 
 const path = require('path');
 const db = require("./models");
-require('dotenv').config()
+require('dotenv').config();
 
 const app = express();
 
@@ -34,6 +34,8 @@ db.mongoose
 app.get('/', (req, res) => {
   res.json('Hello World');
 });
+
+require('./routes/authRoutes')(app);
 
 app.listen(PORT, () => {
   console.log('App listening on PORT: ' + PORT);
