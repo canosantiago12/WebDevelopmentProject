@@ -14,39 +14,20 @@ export const LandingPage = styled.div`
     align-items: center;
     width: 100%;
     height: 90vh;
-    position: relative;
     background: url(${ imgLanding }) no-repeat center;
     animation: ${ backgroundMovingAnimation } 30s ease infinite;
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0,0,0,0.5);
-        z-index: 10;
-    }
+    position: relative;
 `
 
 export const LoginPage = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     height: 90vh;
     position: relative;
     background: url(${ imgLanding }) no-repeat center;
     animation: ${ backgroundMovingAnimation } 30s ease infinite;
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0,0,0,0.5);
-        z-index: 10;
-    }
 `
 
 export const RegisterPage = styled.div`
@@ -57,14 +38,9 @@ export const RegisterPage = styled.div`
     position: relative;
     background: url(${ imgLanding }) no-repeat center;
     animation: ${ backgroundMovingAnimation } 30s ease infinite;
+`
 
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0,0,0,0.5);
-        z-index: 10;
-    }
+export const ProfilePage = styled.div`
+    width: 100%;
+    height: 90vh;
 `
