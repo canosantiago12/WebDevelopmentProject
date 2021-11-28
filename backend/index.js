@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
 
 require('./routes/authRoutes')(app);
 require('./routes/friendRoutes')(app);
+require('./routes/animeRoutes')(app);
 
 app.listen(process.env.PORT, () => {
   console.log('App listening on PORT: ' + process.env.PORT);
