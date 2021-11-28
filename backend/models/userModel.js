@@ -16,6 +16,8 @@ const User = mongoose.model(
       required: true
     },
     friends: [String],
+    friendRequestsSent: [String],
+    friendRequestsReceived: [String],
     animeList: [{
       title: String,
       image: String,
