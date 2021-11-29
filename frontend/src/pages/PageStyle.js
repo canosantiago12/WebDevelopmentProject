@@ -54,7 +54,7 @@ const gradient = keyframes`
 
 export const ProfilePage = styled.div`
     width: 100%;
-    height: 95vh;
+    height: 100%;
     /* background: linear-gradient(-45deg, #191A1A, #1D1E1E, #343535, #464747);
     background-size: 400% 400%;
     animation: ${ gradient } 15s ease infinite; */
@@ -63,6 +63,6 @@ export const ProfilePage = styled.div`
 
 export const AddPage = styled.div`
     width: 100%;
-    height: 89.7vh;
+    height: 100%;
     background: #000000;
 `

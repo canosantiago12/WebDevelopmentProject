@@ -14,10 +14,10 @@ const Profile = ({ currentUser }) => {
   return (
     <>
       <ProfilePage>
-        <div className="main-content">
+        <div className="main-content pt-3">
           <div className="container-fluid px-0 px-sm-3">
             <div className="row">
-              <div className="col-md-3 ps-5">
+              <div className="col-md-3 px-5 pb-2">
                 <div className="card card-profile p-4">
                   <h1>Your Profile:</h1>
                   <img src={currentUser && currentUser.profilePicture} className="profile-img-card" alt="profile_pic"/>
@@ -80,7 +80,7 @@ const Profile = ({ currentUser }) => {
                       :
                       <div className="d-flex align-items-center p-5 flex-column">
                         <p style={{color: "gray"}}>Looks like you haven't added any anime yet :( </p>
-                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
+                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/add')}>Add anime</button>
                       </div>
                     }
                   </div>
@@ -167,7 +167,7 @@ const Profile = ({ currentUser }) => {
                     :
                       <div className="d-flex align-items-center p-5 flex-column">
                         <p style={{color: "gray"}}>Looks like you haven't added any friends yet :( </p>
-                        <button className="btn btn-primary" onClick={() => changeRoute('/addFriend')}>Add friend</button>
+                        <button className="btn btn-primary">Add friend</button>
                       </div>
                     }
                   </div>

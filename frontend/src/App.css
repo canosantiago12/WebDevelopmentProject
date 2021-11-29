@@ -281,13 +281,12 @@ label {
 }
 
 .card-profile {
-  background: #1b1b1b;
+  background: #2c2c2c;
   color: #FFFFFF;
 }
 
 .card-profile hr {
   background: #FFFFFF;
-  position: relative;
   margin-left: auto;
   margin-right: auto;
   height: 3px;
