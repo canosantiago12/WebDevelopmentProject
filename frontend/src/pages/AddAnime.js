@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AddPage } from './PageStyle';
 import { GiSeahorse } from "react-icons/gi";
 import AnimeService from "../services/animeService";
+import AuthService from "../services/auth.service";
 
 const AddAnime = ({ currentUser }) => {
     const [animeName, setAnimeName] = useState();
@@ -30,10 +31,17 @@ const AddAnime = ({ currentUser }) => {
         AnimeService.addAnime(anime, list)
         .then((res) => {
             console.log(res);
+            AuthService.updateUser()
+            .then((res) => {
+                console.log(res);
+            },
+            (err) => {
+                console.log(err);
+            });
         },
         (err) => {
             console.log(err);
-        })
+        });
     }
 
     return (

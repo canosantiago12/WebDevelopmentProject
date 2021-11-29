@@ -59,3 +59,17 @@ exports.signin = (req, res) => {
     });
   });
 };
+
+exports.getUser = async (req, res) => {
+  const user = await User.findById(req.userId);
+  const token = req.headers['x-access-token'];
+
+  res.status(200).send({
+    id: user._id,
+    userName: user.userName,
+    email: user.email,
+    profilePicture: user.profilePicture,
+    animeList: user.animeList,
+    accessToken: token
+  })
+};

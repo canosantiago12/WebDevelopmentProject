@@ -34,9 +34,21 @@ const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 };
 
+const updateUser = async () => {
+    const headers = authHeader()
+    const response = await axios.get(API_URL + "user", {headers});
+
+    if (!response)
+        return response.status(404);
+
+    localStorage.setItem("user", JSON.stringify(response.data));
+    return response.data;
+}
+
 export default {
     register,
     login,
     logout,
     getCurrentUser,
+    updateUser
 };

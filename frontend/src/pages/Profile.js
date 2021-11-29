@@ -13,16 +13,6 @@ const Profile = ({ currentUser }) => {
     history(props);
   }
 
-  const splitArray = (arr, parts) => {
-    console.log(arr);
-    console.log(parts);
-    let result = [];
-    for (let i = parts; i > 0; i--) {
-        result.push(arr.splice(0, Math.ceil(arr.length / i)));
-    }
-    console.log(result);
-  }
-
   return (
     <>
       <ProfilePage>
@@ -42,22 +32,6 @@ const Profile = ({ currentUser }) => {
                 </div>
               </div>
               <div className="col-md-9 px-5">
-                <div className="row">
-                  <div className="card card-profile mb-3">
-                    <h1 className="text-center pt-4">TESTING SHIT</h1>
-                    <hr/>
-                    {currentUser && currentUser.animeList.filter(el => el.seen === true).length > 0 ?
-                      <div className="wrapper mx-5 py-2">
-                        {splitArray(currentUser.animeList.filter(el => el.seen === true), Math.ceil(currentUser.animeList.filter(el => el.seen === true).length / 5))}
-                      </div>
-                      :
-                      <div className="d-flex align-items-center p-5 flex-column">
-                        <p style={{color: "gray"}}>Looks like you haven't added any anime yet :( </p>
-                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
-                      </div>
-                    }
-                  </div>
-                </div>
                 <div className="row">
                   <div className="card card-profile mb-3">
                     <h1 className="text-center pt-4">My Anime List</h1>

@@ -11,5 +11,6 @@ module.exports = (app) => {
     next();
   });
 
+  app.get("/api/auth/user", [authJwt.verifyToken], controller.getUser)
   app.post("/api/auth/signup", [verifySignUp.checkDuplicateUsernameOrEmail], controller.signup);
   app.post("/api/auth/signin", controller.signin);};
