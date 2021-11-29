@@ -18,7 +18,8 @@ exports.addAnime = async (req, res) => {
     synopsis: req.body.synopsis,
     episodes: req.body.episodes,
     score: req.body.score,
-    rated: req.body.rated
+    rated: req.body.rated,
+    seen: req.body.seen
   });
 
   await user.save();

@@ -29,7 +29,8 @@ const User = mongoose.model(
       synopsis: String,
       episodes: Number,
       score: Number,
-      rated: String
+      rated: String,
+      seen: Boolean
     }]
   })
 );
