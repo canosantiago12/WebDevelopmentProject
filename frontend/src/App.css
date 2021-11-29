@@ -315,14 +315,18 @@ label {
 }
 
 .search input {
+  color: #fff;
   height: 60px;
   text-indent: 25px;
-  border: 2px solid #d6d4d4
+  border: none;
+  background: rgba(37, 37, 37, 0.5);
 }
 
 .search input:focus {
+  color: #fff;
   box-shadow: none;
   border: 2px solid #A9412C;
+  background: #2c2c2c;
 }
 
 .search .fa-search {
