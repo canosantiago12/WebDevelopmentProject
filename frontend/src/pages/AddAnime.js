@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { AddPage } from './PageStyle';
-import { FaSearch } from "react-icons/fa";
+import { GiSeahorse } from "react-icons/gi";
 
 const AddAnime = ({ currentUser }) => {
     const [animeName, setAnimeName] = useState();
@@ -38,13 +38,40 @@ const AddAnime = ({ currentUser }) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-md-5 m-auto pt-4">
+                            <div className="col-md-8 m-auto pt-4">
                                 <div className="searchResults">
                                     {animes && animes.map(anime => {
                                         return(
-                                            <div>
-                                                <img src={anime.image_url} alt={anime.title}/>
-                                                <p>{anime.title}</p>
+                                            <div className="row">
+                                                <div className="col-12">
+                                                    <div className="card animeSingle mt-2 mx-2">
+                                                        <div className="col-md-2">
+                                                            <img className="m-3 rounded" src={anime.image_url} alt={anime.title}/>
+                                                        </div>
+                                                        <div className="col-md-10">
+                                                            <div className="d-flex align-items-center">
+                                                                <div className="d-flex flex-column lh-1 px-1 pt-2">
+                                                                    <p><b>Title: </b>{anime.title}</p>
+                                                                    <p><b>Type: </b>{anime.type}</p>
+                                                                    { anime.type === "Movie" ? 
+                                                                        <></>
+                                                                        :
+                                                                        <>
+                                                                            <p><b>Runtime: </b>{anime.episodes}</p>
+                                                                            <p><b>Airing: </b>{anime.airing ? "Returning Series" : "Ended"}</p>
+                                                                        </>
+                                                                    }
+                                                                    <p><b>Score: </b>{anime.score} <GiSeahorse size="1rem" color="#FFFFFF"/></p>
+                                                                    <p><b>Content Rating: </b>{anime.rated}</p>
+                                                                </div>
+                                                                <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
+                                                                    <button type="button" className="btn btn-primary rounded me-2">Add to Seen</button>
+                                                                    <button type="button" className="btn btn-primary rounded">Add to Pending</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         );
                                     })};

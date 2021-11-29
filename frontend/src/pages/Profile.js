@@ -17,8 +17,8 @@ const Profile = ({ currentUser }) => {
         <div className="main-content pt-3">
           <div className="container-fluid px-0 px-sm-3">
             <div className="row">
-              <div className="col-md-3 px-5 pb-2">
-                <div className="card card-profile p-4">
+              <div className="col-md-3 px-4 pb-2">
+                <div className="card card-profile p-4" style={{width: "100%"}}>
                   <h1>Your Profile:</h1>
                   <img src={currentUser && currentUser.profilePicture} className="profile-img-card" alt="profile_pic"/>
                   <h2>
@@ -33,6 +33,61 @@ const Profile = ({ currentUser }) => {
                 <div className="row">
                   <div className="card card-profile mb-3">
                     <h1 className="text-center pt-4">My Anime List</h1>
+                    <hr/>
+                    {currentUser && currentUser.animeList ?
+                      <div className="wrapper mx-5 py-2">
+                        <section id="section1">
+                          <a href="#section3">‹</a>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <div className="itemAnime">
+                            <img src={ejemplo} alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <a href="#section2">›</a>
+                        </section>
+                        <section id="section2">
+                          <a href="#section1" className="arrow__btn">‹</a>
+                          <div className="itemAnime">
+                            <img src="" alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <a href="#section3" className="arrow__btn">›</a>
+                        </section>
+                        <section id="section3">
+                          <a href="#section2" className="arrow__btn">‹</a>
+                          <div className="itemAnime">
+                            <img src="" alt="anime"/>
+                            <p className="animeTitle">My Hero Academia</p>
+                          </div>
+                          <a href="#section1" className="arrow__btn">›</a>
+                        </section>
+                      </div>
+                      :
+                      <div className="d-flex align-items-center p-5 flex-column">
+                        <p style={{color: "gray"}}>Looks like you haven't added any anime yet :( </p>
+                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
+                      </div>
+                    }
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="card card-profile mb-3">
+                    <h1 className="text-center pt-4">Pending Anime</h1>
                     <hr/>
                     {currentUser && currentUser.animeList ?
                       <div className="wrapper mx-5 py-2">
