@@ -20,8 +20,7 @@ const AddFriend= ({ currentUser }) => {
         },
         (err) => {
           console.log(err)
-        }
-      );
+        });
     }
 
     return (
