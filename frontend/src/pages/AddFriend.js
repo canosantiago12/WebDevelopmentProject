@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { AddPage } from './PageStyle';
-import { FaSearch } from "react-icons/fa";
 import FriendService from "../services/friendService";
 
 const AddFriend= ({ currentUser }) => {
@@ -39,11 +37,24 @@ const AddFriend= ({ currentUser }) => {
                         <div className="row">
                             <div className="col-md-5 m-auto pt-4">
                                 <div className="searchResults">
-                                  {users && users.map(user => {
-                                    return (
-                                      <p>{user.userName}</p>
-                                    )
-                                  })}
+                                    {users && users.map(user => {
+                                        return (
+                                            <div className="row">
+                                                <div className="col-12">
+                                                    <div className="card userSingle mt-2 mx-2">
+                                                        <div className="col-md-4 d-flex">
+                                                            <img className="mx-auto my-3 rounded-circle" src={user.profilePicture} alt={"profile_picture"}/>
+                                                        </div>
+                                                        <div className="col-md-8 d-flex my-auto">
+                                                            <div className="fs-5">
+                                                                <p><b>Username: </b>{user.userName}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>
