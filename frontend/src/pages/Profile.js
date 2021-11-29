@@ -80,7 +80,7 @@ const Profile = ({ currentUser }) => {
                       :
                       <div className="d-flex align-items-center p-5 flex-column">
                         <p style={{color: "gray"}}>Looks like you haven't added any anime yet :( </p>
-                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/add')}>Add anime</button>
+                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
                       </div>
                     }
                   </div>
@@ -167,7 +167,7 @@ const Profile = ({ currentUser }) => {
                     :
                       <div className="d-flex align-items-center p-5 flex-column">
                         <p style={{color: "gray"}}>Looks like you haven't added any friends yet :( </p>
-                        <button className="btn btn-primary">Add friend</button>
+                        <button className="btn btn-primary" onClick={() => changeRoute('/addFriend')}>Add friend</button>
                       </div>
                     }
                   </div>
