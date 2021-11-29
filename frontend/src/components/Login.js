@@ -74,13 +74,8 @@ const Login = ({ currentUser }) => {
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12">
-                  <div className="card card-container m-auto">
-                      <img
-                      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                      alt="profile-img"
-                      className="profile-img-card"
-                      />
-
+                  <div className="card card-container m-auto glassCard">
+                    <h1 className="text-center">Log in into your account</h1>
                       <Form onSubmit={handleLogin} ref={form}>
                           <div className="form-group">
                               <label htmlFor="username">Username</label>
@@ -107,7 +102,7 @@ const Login = ({ currentUser }) => {
                           </div>
 
                           <div className="form-group">
-                              <button className="btn btn-primary btn-block mt-2" disabled={loading}>
+                              <button className="btn btn-primary btn-block mt-3" disabled={loading}>
                                   {loading && (
                                       <span className="spinner-border spinner-border-sm"></span>
                                   )}

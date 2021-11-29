@@ -50,7 +50,11 @@ label {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+
+.profile-img-card-register:hover {
   cursor: pointer;
+  opacity: 0.8;
 }
 
 @keyframes movingText {
@@ -288,6 +292,22 @@ label {
   margin-right: auto;
   height: 3px;
   width: 85%;
+}
+
+.glassCard {
+  color: #FFFFFF;
+  background: rgba( 43, 43, 43, 0.1 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.glassCard input {
+  color: #FFFFFF;
+  background: rgba(156, 156, 156, 0.1);
+  border: none;
 }
 
 .search {
