@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { AddPage } from './PageStyle';
 import { GiSeahorse } from "react-icons/gi";
+import AnimeService from "../services/animeService";
 
 const AddAnime = ({ currentUser }) => {
     const [animeName, setAnimeName] = useState();
     const [animes, setAnimes] = useState();
+    const [disableButton, setDisableButton] = useState(false);
 
     const onChangeSearch = (e) => {
         const animename = e.target.value;
@@ -23,6 +25,16 @@ const AddAnime = ({ currentUser }) => {
             console.log(err);
         });
     };
+
+    const addToAnimeList = (anime, list) => {
+        AnimeService.addAnime(anime, list)
+        .then((res) => {
+            console.log(res);
+        },
+        (err) => {
+            console.log(err);
+        })
+    }
 
     return (
         <>
@@ -65,8 +77,8 @@ const AddAnime = ({ currentUser }) => {
                                                                     <p><b>Content Rating: </b>{anime.rated}</p>
                                                                 </div>
                                                                 <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
-                                                                    <button type="button" className="btn btn-primary rounded me-2">Add to Seen</button>
-                                                                    <button type="button" className="btn btn-primary rounded">Add to Pending</button>
+                                                                    <button type="button" className="btn btn-primary rounded me-2" onClick={() => addToAnimeList(anime, 'Seen')}>Add to Seen</button>
+                                                                    <button type="button" className="btn btn-primary rounded" onClick={() => addToAnimeList(anime, 'Pending')}>Add to Pending</button>
                                                                 </div>
                                                             </div>
                                                         </div>

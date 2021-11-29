@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ProfilePage } from './PageStyle';
 import { useNavigate } from 'react-router-dom';
+import AuthService from '../services/auth.service';
 
 import ejemplo from '../assets/images/MHA.png';
 
 const Profile = ({ currentUser }) => {
+  const [count, setCount] = useState(0);
   const history = useNavigate();
 
   const changeRoute = (props) => {
     history(props);
+  }
+
+  const splitArray = (arr, parts) => {
+    console.log(arr);
+    console.log(parts);
+    let result = [];
+    for (let i = parts; i > 0; i--) {
+        result.push(arr.splice(0, Math.ceil(arr.length / i)));
+    }
+    console.log(result);
   }
 
   return (
@@ -32,9 +44,25 @@ const Profile = ({ currentUser }) => {
               <div className="col-md-9 px-5">
                 <div className="row">
                   <div className="card card-profile mb-3">
+                    <h1 className="text-center pt-4">TESTING SHIT</h1>
+                    <hr/>
+                    {currentUser && currentUser.animeList.filter(el => el.seen === true).length > 0 ?
+                      <div className="wrapper mx-5 py-2">
+                        {splitArray(currentUser.animeList.filter(el => el.seen === true), Math.ceil(currentUser.animeList.filter(el => el.seen === true).length / 5))}
+                      </div>
+                      :
+                      <div className="d-flex align-items-center p-5 flex-column">
+                        <p style={{color: "gray"}}>Looks like you haven't added any anime yet :( </p>
+                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
+                      </div>
+                    }
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="card card-profile mb-3">
                     <h1 className="text-center pt-4">My Anime List</h1>
                     <hr/>
-                    {currentUser && currentUser.animeList ?
+                    {currentUser && currentUser.animeList.filter(el => el.seen === true).length > 0 ?
                       <div className="wrapper mx-5 py-2">
                         <section id="section1">
                           <a href="#section3">‹</a>
@@ -89,7 +117,7 @@ const Profile = ({ currentUser }) => {
                   <div className="card card-profile mb-3">
                     <h1 className="text-center pt-4">Pending Anime</h1>
                     <hr/>
-                    {currentUser && currentUser.animeList ?
+                    {currentUser && currentUser.animeList.filter(el => el.seen === false).length > 0 ?
                       <div className="wrapper mx-5 py-2">
                         <section id="section1">
                           <a href="#section3">‹</a>

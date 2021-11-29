@@ -10,7 +10,8 @@ module.exports = function(app) {
     next();
   });
 
-  app.get("/api/anime/animes", [authJwt.verifyToken], controller.getAnimes);
+  app.get("/api/anime/seenAnimes", [authJwt.verifyToken], controller.getSeenAnimes);
+  app.get("/api/anime/pendingAnimes", [authJwt.verifyToken], controller.getPendingAnimes);
   app.post("/api/anime/addAnime", [authJwt.verifyToken], controller.addAnime);
   app.post("/api/anime/deleteAnime", [authJwt.verifyToken], controller.deleteAnime);
 };

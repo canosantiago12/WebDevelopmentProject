@@ -54,6 +54,7 @@ exports.signin = (req, res) => {
       userName: user.userName,
       email: user.email,
       profilePicture: user.profilePicture,
+      animeList: user.animeList,
       accessToken: token
     });
   });

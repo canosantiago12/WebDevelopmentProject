@@ -2,10 +2,16 @@ const db = require("../models");
 
 const User = db.user;
 
-exports.getAnimes = async (req, res) => {
+exports.getSeenAnimes = async (req, res) => {
   const user = await User.findById(req.userId);
 
-  res.status(200).send(user.animeList);
+  res.status(200).send(user.animeList.filter(el => el.seen === true));
+}
+
+exports.getPendingAnimes = async (req, res) => {
+  const user = await User.findById(req.userId);
+
+  res.status(200).send(user.animeList.filter(el => el.seen === false));
 }
 
 exports.addAnime = async (req, res) => {
