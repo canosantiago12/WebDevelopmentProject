@@ -47,8 +47,7 @@ const AddAnime = ({ currentUser }) => {
                                                 <p>{anime.title}</p>
                                             </div>
                                         );
-                                    })
-                                    };
+                                    })};
                                 </div>
                             </div>
                         </div>
