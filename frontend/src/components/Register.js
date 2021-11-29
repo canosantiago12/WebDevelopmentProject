@@ -137,35 +137,35 @@ const Register = ({ currentUser }) => {
                               <div className="modal-body">
                                 <div className="row">
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-1" />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-1" />
                                   </div>
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-2" />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-2" />
                                   </div>
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-3" />
-                                  </div>
-                                </div>
-                                <div className="row mt-2">
-                                  <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-4" />
-                                  </div>
-                                  <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-5" />
-                                  </div>
-                                  <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-6" />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-3" />
                                   </div>
                                 </div>
                                 <div className="row mt-2">
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-7" />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-4" />
                                   </div>
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-8" />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-5" />
                                   </div>
                                   <div className="col-md-4">
-                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} alt="profile-picture-9" />
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-6" />
+                                  </div>
+                                </div>
+                                <div className="row mt-2">
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-7" />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-8" />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <img src={pp} className="ppImage" onClick={() => onClickProfilePicture(pp)} aria-hidden alt="profile-picture-9" />
                                   </div>
                                 </div>
                               </div>
