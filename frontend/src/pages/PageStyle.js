@@ -60,3 +60,9 @@ export const ProfilePage = styled.div`
     animation: ${ gradient } 15s ease infinite; */
     background: #000000;
 `
+
+export const AddPage = styled.div`
+    width: 100%;
+    height: 89.7vh;
+    background: #000000;
+`

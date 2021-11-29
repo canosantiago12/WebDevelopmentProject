@@ -143,6 +143,31 @@ label {
   color: #FFFFFF;
 }
 
+.btn-primary {
+  border: none;
+  background-color: #D94D31;
+}
+
+.btn-primary:hover {
+  background: #A9412C;
+  color: #FFFFFF;
+}
+
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #A9412C;
+  border-color: #A9412C;
+  box-shadow: 0 0 0 0.25rem rgba(169, 65, 44, 0.5);
+}
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #A9412C;
+  border-color: #A9412C;
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(169, 65, 44, 0.5);
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -263,4 +288,41 @@ label {
   margin-right: auto;
   height: 3px;
   width: 85%;
+}
+
+.search {
+  position: relative;
+  box-shadow: 0 0 40px rgba(51, 51, 51, .1)
+}
+
+.search input {
+  height: 60px;
+  text-indent: 25px;
+  border: 2px solid #d6d4d4
+}
+
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid #A9412C;
+}
+
+.search .fa-search {
+  position: absolute;
+  top: 20px;
+  left: 16px
+}
+
+.search button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 50px;
+  width: 110px;
+  background: #D94D31;
+}
+
+.searchResults {
+  height: 70vh;
+  border-radius: 10px;
+  background: rgba(80, 80, 80, 0.575);
 }

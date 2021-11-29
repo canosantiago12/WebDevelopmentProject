@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'; 
 import { routes } from './routes';
 import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import AuthService from './services/auth.service';
@@ -13,6 +12,7 @@ import Register from './components/Register';
 import Landing from './pages/LandingPage';
 import Profile from './pages/Profile';
 import BoardUser from './pages/UserDashboard';
+import AddFriendAnime from './pages/AddFriendAnime';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -34,12 +34,11 @@ function App() {
         <Route path='/' element={<Landing currentUser={currentUser}/>} />
         <Route path='/profile' element={<Profile currentUser={currentUser}/>} />
         <Route path='/user' element={<BoardUser currentUser={currentUser}/>} />
-
+        <Route path='/add' element={<AddFriendAnime currentUser={currentUser}/>} />
         {/*routes.map((route) => (
           <Route path={route.to} element={route.component} />
         ))*/}
       </Routes>
-      {/* <Footer /> */}
     </Router>
   );
 };

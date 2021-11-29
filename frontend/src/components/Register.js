@@ -11,7 +11,7 @@ import AuthService from "../services/auth.service";
 const required = (value) => {
   if (!value) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className="alert alert-danger mt-2" role="alert">
         This field is required!
       </div>
     );
@@ -21,7 +21,7 @@ const required = (value) => {
 const validEmail = (value) => {
   if (!isEmail(value)) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className="alert alert-danger mt-2" role="alert">
         This is not a valid email.
       </div>
     );
@@ -31,7 +31,7 @@ const validEmail = (value) => {
 const vusername = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className="alert alert-danger mt-2" role="alert">
         The username must be between 3 and 20 characters.
       </div>
     );
@@ -41,7 +41,7 @@ const vusername = (value) => {
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className="alert alert-danger mt-2" role="alert">
         The password must be between 6 and 40 characters.
       </div>
     );
@@ -223,7 +223,7 @@ const Register = ({ currentUser }) => {
                           {message && (
                               <div className="form-group">
                                   <div
-                                      className={ successful ? "alert alert-success" : "alert alert-danger" }
+                                      className={ successful ? "alert alert-success mt-2" : "alert alert-danger mt-2" }
                                       role="alert"
                                   >
                                       {message}

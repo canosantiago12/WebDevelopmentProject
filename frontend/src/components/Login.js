@@ -10,7 +10,7 @@ import AuthService from "../services/auth.service";
 const required = (value) => {
   if (!value) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className="alert alert-danger mt-2" role="alert">
         This field is required!
       </div>
     );
@@ -117,7 +117,7 @@ const Login = ({ currentUser }) => {
 
                           {message && (
                               <div className="form-group">
-                                  <div className="alert alert-danger" role="alert">
+                                  <div className="alert alert-danger mt-2" role="alert">
                                       {message}
                                   </div>
                               </div>

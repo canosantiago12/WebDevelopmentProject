@@ -1,16 +1,22 @@
 import React from "react";
 import { ProfilePage } from './PageStyle';
+import { useNavigate } from 'react-router-dom';
 
 import ejemplo from '../assets/images/MHA.png';
 
 const Profile = ({ currentUser }) => {
+  const history = useNavigate();
+
+  const changeRoute = (props) => {
+    history(props);
+  }
 
   return (
     <>
       <ProfilePage>
         <div className="main-content">
-          <div className="container-fluid px-0 px-sm-3 h-100">
-            <div className="row h-100">
+          <div className="container-fluid px-0 px-sm-3">
+            <div className="row">
               <div className="col-md-3 ps-5">
                 <div className="card card-profile p-4">
                   <h1>Your Profile:</h1>
@@ -72,7 +78,10 @@ const Profile = ({ currentUser }) => {
                         </section>
                       </div>
                       :
-                      <p>Eres un pnedejo</p>
+                      <div className="d-flex align-items-center p-5 flex-column">
+                        <p style={{color: "gray"}}>Looks like you haven't added any anime yet :( </p>
+                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/add')}>Add anime</button>
+                      </div>
                     }
                   </div>
                 </div>
@@ -156,7 +165,10 @@ const Profile = ({ currentUser }) => {
                         </section>
                       </div>
                     :
-                      <p>Eres un pendejo</p>
+                      <div className="d-flex align-items-center p-5 flex-column">
+                        <p style={{color: "gray"}}>Looks like you haven't added any friends yet :( </p>
+                        <button className="btn btn-primary">Add friend</button>
+                      </div>
                     }
                   </div>
                 </div>
