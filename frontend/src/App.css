@@ -315,14 +315,18 @@ label {
 }
 
 .search input {
+  color: #fff;
   height: 60px;
   text-indent: 25px;
-  border: 2px solid #d6d4d4
+  border: none;
+  background: rgba(37, 37, 37, 0.5);
 }
 
 .search input:focus {
+  color: #fff;
   box-shadow: none;
   border: 2px solid #A9412C;
+  background: #2c2c2c;
 }
 
 .search .fa-search {
@@ -343,7 +347,6 @@ label {
 .searchResults {
   height: 70vh;
   border-radius: 10px;
-  background: rgba(80, 80, 80, 0.575);
   overflow-x: hidden;
 }
 
@@ -351,8 +354,13 @@ label {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: rgba(0,0,0,0.5);
+  background: rgba(37, 37, 37, 0.5);
   color: #FFFFFF;
+  transition: transform .2s
+}
+
+.animeSingle:hover {
+  transform: scale(1.01);
 }
 
 .animeSingle b {
@@ -364,6 +372,30 @@ label {
   height: 200px;
   width: 144px;
   box-shadow: 4px 4px 10px #D94D31;
+}
+
+.userSingle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(37, 37, 37, 0.5);
+  color: #FFFFFF;
+  transition: transform .2s
+}
+
+.userSingle:hover {
+  transform: scale(1.01);
+}
+
+.userSingle b {
+  color: #D94D31;
+  padding-right: 20px;
+}
+
+.userSingle img {
+  height: 100px;
+  width: 100px;
+  box-shadow: 0px 0px 10px #D94D31;
 }
 
 ::-webkit-scrollbar {
