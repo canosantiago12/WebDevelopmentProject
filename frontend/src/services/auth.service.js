@@ -30,7 +30,7 @@ const logout = () => {
     localStorage.removeItem("user");
 };
 
-const getCurrentUser = async () => {
+const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 };
 
