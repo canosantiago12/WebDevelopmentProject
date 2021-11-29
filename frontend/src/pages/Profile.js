@@ -20,7 +20,7 @@ const Profile = ({ currentUser }) => {
               <div className="col-md-3 ps-5">
                 <div className="card card-profile p-4">
                   <h1>Your Profile:</h1>
-                  <img src={currentUser && currentUser.profilePicture} className="profile-img-card"/>
+                  <img src={currentUser && currentUser.profilePicture} className="profile-img-card" alt="profile_pic"/>
                   <h2>
                     <strong>{currentUser && currentUser.userName}</strong>
                   </h2>
