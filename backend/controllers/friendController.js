@@ -4,7 +4,7 @@ const User = db.user;
 
 exports.findUser = async (req, res) => {
   const users = await User.find();
-  const foundUsers = users.filter(el => el.userName.includes(req.query.q))
+  const foundUsers = users.filter(el => el.userName.includes(req.query.name))
   
   res.status(200).send(foundUsers.map(el => ({
     userId: el._id,

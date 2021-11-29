@@ -1,8 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 import { AddPage } from './PageStyle';
 import { FaSearch } from "react-icons/fa";
 
-const AddFriendAnime = ({ currentUser }) => {
+const AddAnime = ({ currentUser }) => {
     return (
         <>
             <AddPage>
@@ -11,7 +12,7 @@ const AddFriendAnime = ({ currentUser }) => {
                         <div className="row">
                             <div className="col-md-4 mx-auto my-0">
                                 <div className="search">
-                                    <input type="text" className="form-control rounded-pill" placeholder="Search anime or friend..."/> 
+                                    <input type="text" className="form-control rounded-pill" placeholder="Search anime..."/> 
                                     <button className="btn btn-primary rounded-pill">Search</button>
                                 </div>
                             </div>
@@ -29,4 +30,4 @@ const AddFriendAnime = ({ currentUser }) => {
     )
 }
 
-export default AddFriendAnime;
+export default AddAnime;
