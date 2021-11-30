@@ -458,6 +458,7 @@ a:hover {
   height: 140.625px;
   margin-right: 10px;
   font-size: 20px;
+  overflow: hidden;
   cursor: pointer;
   transition: 450ms all;
   transform-origin: center left;
