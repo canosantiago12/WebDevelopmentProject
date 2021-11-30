@@ -67,6 +67,8 @@ exports.getUser = async (req, res) => {
   const user = await User.findById(req.userId);
   const token = req.headers['x-access-token'];
 
+  console.log(user);
+
   res.status(200).send({
     id: user._id,
     userName: user.userName,
