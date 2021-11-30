@@ -40,7 +40,7 @@ const AnimeDetails = ({ currentUser }) => {
                             <div className="col-md-8 mx-auto">
                                 <div className="animeDetailsContainer">
                                     <div>
-                                        <h1 className="text-start ps-4">My Hero Academia</h1>
+                                        <h1 className="text-start ps-4">{anime[0].title}</h1>
                                     </div>
                                     <div className="divider">
                                     </div>
