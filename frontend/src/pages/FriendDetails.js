@@ -149,7 +149,7 @@ const FriendDetails = ({ currentUser }) => {
                                                     <>
                                                     <h1 className="display-6">Watched animes: </h1>
                                                     <div className="d-flex align-items-center p-5 flex-column">
-                                                        <p style={{color: "gray"}}>Looks like Specks hasn't added any animes yet :( </p>
+                                                        <p style={{color: "gray"}}>Looks like {friend.userName} hasn't added any animes yet :( </p>
                                                     </div>
                                                     </>
                                                 /* Watched anime slider END */
@@ -187,7 +187,7 @@ const FriendDetails = ({ currentUser }) => {
                                                     <>
                                                     <h1 className="display-6">Pending animes: </h1>
                                                     <div className="d-flex align-items-center p-5 flex-column">
-                                                        <p style={{color: "gray"}}>Looks like Specks hasn't added any animes yet :( </p>
+                                                        <p style={{color: "gray"}}>Looks like {friend.userName} hasn't added any animes yet :( </p>
                                                     </div>
                                                     </>
                                                 /* Pending anime slider END */
