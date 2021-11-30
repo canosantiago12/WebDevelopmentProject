@@ -12,6 +12,9 @@ const addAnime = (anime, list) => {
       synopsis: anime.synopsis,
       episodes: anime.episodes,
       score: anime.score,
+      startDate: anime.start_date,
+      endDate: anime.end_date,
+      type: anime.type,
       rated: anime.rated,
       seen: list === 'Seen' ? true : false
     };

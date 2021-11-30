@@ -32,6 +32,9 @@ const User = mongoose.model(
       synopsis: String,
       episodes: Number,
       score: Number,
+      startDate: String,
+      endDate: String,
+      classified: String,
       rated: String,
       seen: Boolean
     }]

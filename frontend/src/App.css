@@ -670,6 +670,10 @@ a:hover {
   background: #D94D31;
 }
 
+.animeDetailsText {
+  color: #FFFFFF;
+}
+
 .animeDetails img {
   height: 417px;
   width: 300px;
