@@ -10,6 +10,15 @@ const getUser = (user) => {
     return axios.get(API_URL + "user/?name=" + user, {headers});
 };
 
+const addFriend = (user) => {
+    const headers = authHeader();
+    console.log(user);
+    const data = { addUserName: user };
+
+    return axios.post(API_URL + "makeFriendRequest", data, {headers});
+}
+
 export default {
     getUser,
+    addFriend
 };
