@@ -205,17 +205,17 @@ const Profile = ({ currentUser }) => {
                           </div>
                         </div>
                         <hr className="mb-0"/>
-                        <div className="animeSlider">
-                          <div className="animeSlider__inner py-3">
+                        <div className="friendSlider">
+                          <div className="friendSlider__inner py-3">
                             {/* Anime tile */}
                             {currentUser.friends.map(el => {
                               return(
-                                <div className="tile">
-                                  <div className="tile__media">
+                                <div className="friendTile">
+                                  <div className="friendTile__media">
                                     <img className="tile__img" src={el.profilePicture} alt={el.userName} />
                                   </div>
-                                  <div className="tile__details">
-                                    <div className="tile__title">
+                                  <div className="friendTile__details">
+                                    <div className="friendTile__title">
                                       {el.userName}
                                     </div>
                                   </div>

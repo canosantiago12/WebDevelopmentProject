@@ -661,6 +661,10 @@ a:hover {
   transform: translate3d(70px, 0, 0);
 }
 
+.friendSlider {
+  
+}
+
 .animeDetailsContainer h1 {
   color: #FFFFFF;
 }
@@ -681,3 +685,4 @@ a:hover {
   font-size: 20px;
   letter-spacing: 2px;
 }
+
