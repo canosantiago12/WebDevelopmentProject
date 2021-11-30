@@ -766,7 +766,7 @@ a:hover {
   color: #FFFFFF;
 }
 
-.animeDetailsContainer .divider {
+.divider {
   height: 5px;
   background: #D94D31;
 }
@@ -785,6 +785,19 @@ a:hover {
   font-weight: bold;
   font-size: 20px;
   letter-spacing: 2px;
+}
+
+.friendDetailsContainer {
+  color: #FFFFFF;
+}
+
+.friendDetailsContainer .friendDetailsProfilePicture {
+  height: 250px;
+  width: 250px;
+}
+
+.friendDetailsContainer span {
+  color: #D94D31;
 }
 
 .form-control {
