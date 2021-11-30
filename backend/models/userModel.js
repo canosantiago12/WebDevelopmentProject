@@ -26,6 +26,7 @@ const User = mongoose.model(
     friendRequestsSent: [String],
     friendRequestsReceived: [String],
     animeList: [{
+      animeId: Number,
       title: String,
       image: String,
       airing: Boolean,

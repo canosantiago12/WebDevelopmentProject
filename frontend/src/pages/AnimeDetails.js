@@ -6,6 +6,7 @@ import exp from '../assets/images/MHA.png'
 
 const AnimeDetails = ({ currentUser }) => {
     const [anime, setAnime] = useState([{
+      animeId: 0,
       title: '',
       score: 0,
       image: '',
@@ -29,7 +30,7 @@ const AnimeDetails = ({ currentUser }) => {
         const animeId = params.get('animeId');
 
         if (currentUser) {
-          setAnime(currentUser.animeList.filter(el => el._id === animeId));
+          setAnime(currentUser.animeList.filter(el => el.animeId == animeId));
         }
     }, [currentUser]);
 

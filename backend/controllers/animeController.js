@@ -17,9 +17,8 @@ exports.getPendingAnimes = async (req, res) => {
 exports.addAnime = async (req, res) => {
   const user = await User.findById(req.userId);
 
-  console.log(typeof(req.body.startDate))
-
   user.animeList.push({
+    animeId: req.body.animeId,
     title: req.body.title,
     image: req.body.image,
     airing: req.body.airing,

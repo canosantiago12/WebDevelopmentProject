@@ -114,7 +114,7 @@ const Profile = ({ currentUser }) => {
                             {/* Anime tile */}
                             {currentUser.animeList.filter(el => el.seen === true).map(el => {
                               return(
-                                <div className="tile" onClick={() => changeRoute(`/animeDetails?animeId=${el._id}`)}>
+                                <div className="tile" onClick={() => changeRoute(`/animeDetails?animeId=${el.animeId}`)}>
                                   <div className="tile__media">
                                     <img className="tile__img" src={el.image} alt={el.title} />
                                   </div>
@@ -164,7 +164,7 @@ const Profile = ({ currentUser }) => {
                             {/* Anime tile */}
                             {currentUser.animeList.filter(el => el.seen === false).map(el => {
                               return(
-                                <div className="tile" onClick={() => changeRoute(`/animeDetails?animeId=${el._id}`)}>
+                                <div className="tile" onClick={() => changeRoute(`/animeDetails?animeId=${el.animeId}`)}>
                                   <div className="tile__media">
                                     <img className="tile__img" src={el.image} alt={el.title} />
                                   </div>
