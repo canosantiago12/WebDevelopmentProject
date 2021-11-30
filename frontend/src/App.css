@@ -173,12 +173,33 @@ label {
   box-shadow: 0 0 0 0.25rem rgba(169, 65, 44, 0.5);
 }
 
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #fff;
+  background-color: #9d9e9e;
+}
+
 .btn-delete {
   background: #d32626;
 }
 
 .btn-delete:hover {
   background: #b81b1b;
+}
+
+.btn-success {
+  background: #47be47;
+}
+
+.btn-success:hover {
+  background: #379137;
+}
+
+.btn-danger {
+  background: #c22f2f;
+}
+
+.btn-danger:hover {
+  background: #992525;
 }
 
 .overlay {

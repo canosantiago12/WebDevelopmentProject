@@ -69,18 +69,23 @@ const Profile = ({ currentUser }) => {
                 <div className="row">
                   <div className="card card-profile cardBG p-4 mt-3" style={{width: "100%"}}>
                     <h1>Your Friend Requests:</h1>
+                    {currentUser && !(currentUser.friendRequestsReceived.length > 0) &&
+                      <div className="col-md-4 ps-3">
+                        <p className="text-secondary">No pending friend requests</p>
+                      </div>
+                    }
                       {currentUser && currentUser.friendRequestsReceived && currentUser.friendRequestsReceived.map(user => {
                         return (
                           <div className="row">
                             <div className="col-12">
-                              <div className="card userSingle mt-2 mx-2">
-                                <div className="col-md-12 d-flex my-auto">
+                              <div className="card userSingle p-3">
+                                <div className="col-md-12 d-flex flex-column">
                                   <div className="fs-5">
                                     <p><b>Username: </b>{user}</p>
                                   </div>
-                                  <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
-                                    <button type="button" className="btn btn-primary rounded me-2" onClick={() => handleFriendRequest(user, true)}>Accept</button>
-                                    <button type="button" className="btn btn-primary rounded me-2" onClick={() => handleFriendRequest(user, false)}>Reject</button>
+                                  <div className="btn-group mx-auto" role="group" aria-label="Basic example">
+                                    <button type="button" className="btn btn-success rounded me-2 h-25" onClick={() => handleFriendRequest(user, true)}>Accept</button>
+                                    <button type="button" className="btn btn-danger rounded me-2 h-25" onClick={() => handleFriendRequest(user, false)}>Reject</button>
                                   </div>
                                 </div>
                               </div>
@@ -204,7 +209,7 @@ const Profile = ({ currentUser }) => {
                           </div>
                         </div>
                         <hr className="mb-0"/>
-                        <div className="animeSlider ps-5">
+                        <div className="animeSlider">
                           <div className="animeSlider__inner py-3">
                             {/* Friend tile */}
                             {currentUser.friends.map(el => {
