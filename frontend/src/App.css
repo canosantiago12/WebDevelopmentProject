@@ -290,7 +290,7 @@ label {
   margin-left: auto;
   margin-right: auto;
   height: 3px;
-  width: 85%;
+  width: 95%;
 }
 
 .glassCard {
@@ -428,11 +428,9 @@ a:hover {
   color: #7f8c8d;
 }
 
-.contain {
-  background-color: #A9412C;
-}
 
 .animeSlider {
+  scroll-behavior: smooth;
   overflow: scroll;
   overflow-y: hidden;
   width: 100%;
@@ -447,28 +445,26 @@ a:hover {
   transition: 450ms transform;
   font-size: 0;
   white-space: nowrap;
-  margin: 70.3125px 0;
-  padding-bottom: 10px;
+  margin: 50px 0;
 }
 
 .tile {
   position: relative;
   display: inline-block;
-  width: 250px;
-  height: 140.625px;
+  width: 143px;
+  height: 200px;
   margin-right: 10px;
-  font-size: 20px;
-  overflow: hidden;
+  font-size: 10px;
   cursor: pointer;
   transition: 450ms all;
   transform-origin: center left;
 }
 
 .tile__img {
-  width: 250px;
-  height: 140.625px;
+  width: 143px;
+  height: 200px;
   -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .tile__details {
@@ -481,6 +477,7 @@ a:hover {
   opacity: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
   transition: 450ms opacity;
+  overflow: hidden;
 }
 
 .tile__details:after,
@@ -493,28 +490,41 @@ a:hover {
 }
 
 .tile:hover .tile__details {
- opacity: 1;
+  opacity: 1;
 }
 
 .tile__title {
- position: absolute;
- bottom: 0;
- padding: 10px;
+  color: rgb(184, 184, 184);
+  position: absolute;
+  bottom: 0;
+  width: 140px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  padding: 10px;
+}
+
+.tile__title:hover {
+  color: #FFFFFF;
+  overflow: visible; 
+  white-space: normal;
+  height:auto;
 }
 
 .animeSlider__inner:hover {
- transform: translate3d(-62.5px, 0, 0);
+  transform: translate3d(-62.5px, 0, 0);
 }
 
 .animeSlider__inner:hover .tile {
- opacity: 0.3;
+  opacity: 0.3;
 }
 
 .animeSlider__inner:hover .tile:hover {
- transform: scale(1.5);
- opacity: 1;
+  transform: scale(1.5);
+  opacity: 1;
 }
 
 .tile:hover~.tile {
- transform: translate3d(125px, 0, 0);
+  transform: translate3d(70px, 0, 0);
 }

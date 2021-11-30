@@ -35,33 +35,48 @@ const Profile = ({ currentUser }) => {
                 {/* Watched anime wrapper START */}
                 <div className="row">
                   <div className="card card-profile mb-3">
-                    <h1 className="text-center pt-4 mb-0">Watched Anime</h1>
-                    <hr className="mb-0"/>
                     {currentUser && currentUser.animeList.filter(el => el.seen === true).length > 0 ?
-                      <div className="animeSlider">
-                        <div className="animeSlider__inner">
-                          {/* Anime tile */}
-                          {currentUser.animeList.filter(el => el.seen === true).map(el => {
-                            return(
-                              <div className="tile">
-                                <div className="tile__media">
-                                  <img className="tile__img" src={el.image} alt={el.title} />
-                                </div>
-                                <div className="tile__details">
-                                  <div className="tile__title">
-                                    {el.title}
+                      <>
+                        <div className="row mt-4">
+                          <div className="col-md-12 d-flex justify-content-center px-5">
+                            <h1 className="text-center mb-0">Watched Anime</h1>
+                            <button className="btn btn-primary ms-auto" onClick={() => changeRoute('/addAnime')}>Add anime</button>
+                          </div>
+                        </div>
+                        <hr className="mb-0"/>
+                        <div className="animeSlider">
+                          <div className="animeSlider__inner py-3">
+                            {/* Anime tile */}
+                            {currentUser.animeList.filter(el => el.seen === true).map(el => {
+                              return(
+                                <div className="tile">
+                                  <div className="tile__media">
+                                    <img className="tile__img" src={el.image} alt={el.title} />
+                                  </div>
+                                  <div className="tile__details">
+                                    <div className="tile__title">
+                                      {el.title}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            );
-                        })}
+                              );
+                          })}
+                          </div>
                         </div>
-                      </div>
+                      </>
                     :
-                      <div className="d-flex align-items-center p-5 flex-column">
-                        <p style={{color: "gray"}}>Looks like you haven't added any friends yet :( </p>
-                        <button className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
-                      </div>
+                      <>
+                        <div className="row mt-4">
+                          <div className="col-md-12 d-flex justify-content-center px-5">
+                            <h1 className="text-center mb-0">Watched Anime</h1>
+                          </div>
+                        </div>
+                        <hr className="mb-0"/>
+                        <div className="d-flex align-items-center p-5 flex-column">
+                          <p style={{color: "gray"}}>Looks like you haven't added any animes yet :( </p>
+                          <button className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
+                        </div>
+                      </>
                     }
                   </div>
                 </div>
@@ -70,33 +85,48 @@ const Profile = ({ currentUser }) => {
                 {/* Pending anime wrapper START */}
                 <div className="row">
                   <div className="card card-profile mb-3">
-                    <h1 className="text-center pt-4 mb-0">Pending Anime</h1>
-                    <hr className="mb-0"/>
                     {currentUser && currentUser.animeList.filter(el => el.seen === false).length > 0 ?
-                      <div className="animeSlider">
-                        <div className="animeSlider__inner">
-                          {/* Anime tile */}
-                          {currentUser.animeList.filter(el => el.seen === false).map(el => {
-                            return(
-                              <div className="tile">
-                                <div className="tile__media">
-                                  <img className="tile__img" src={el.image} alt={el.title} />
-                                </div>
-                                <div className="tile__details">
-                                  <div className="tile__title">
-                                    {el.title}
+                      <>
+                        <div className="row mt-4">
+                          <div className="col-md-12 d-flex justify-content-center px-5">
+                            <h1 className="text-center mb-0">Watched Anime</h1>
+                            <button className="btn btn-primary ms-auto" onClick={() => changeRoute('/addAnime')}>Add anime</button>
+                          </div>
+                        </div>
+                        <hr className="mb-0"/>
+                        <div className="animeSlider">
+                          <div className="animeSlider__inner py-3">
+                            {/* Anime tile */}
+                            {currentUser.animeList.filter(el => el.seen === false).map(el => {
+                              return(
+                                <div className="tile">
+                                  <div className="tile__media">
+                                    <img className="tile__img" src={el.image} alt={el.title} />
+                                  </div>
+                                  <div className="tile__details">
+                                    <div className="tile__title">
+                                      {el.title}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            );
-                           })}
+                              );
+                            })}
+                          </div>
                         </div>
-                      </div>
+                      </>
                     :
-                      <div className="d-flex align-items-center p-5 flex-column">
-                        <p style={{color: "gray"}}>Looks like you haven't added any friends yet :( </p>
-                        <button className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
-                      </div>
+                      <>
+                        <div className="row mt-4">
+                          <div className="col-md-12 d-flex justify-content-center px-5">
+                            <h1 className="text-center mb-0">Pending Anime</h1>
+                          </div>
+                        </div>
+                        <hr className="mb-0"/>
+                        <div className="d-flex align-items-center p-5 flex-column">
+                          <p style={{color: "gray"}}>Looks like you haven't added any animes yet :( </p>
+                          <button className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
+                        </div>
+                      </>
                     }
                   </div>
                 </div>
