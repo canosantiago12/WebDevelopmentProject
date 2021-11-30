@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { DetailsPage } from './PageStyle';
 import { GiSeahorse } from "react-icons/gi";
 
-import exp from '../assets/images/MHA.png'
-
 const AnimeDetails = ({ currentUser }) => {
     const [anime, setAnime] = useState([{
       animeId: 0,
@@ -42,13 +40,15 @@ const AnimeDetails = ({ currentUser }) => {
                         <div className="row">
                             <div className="col-md-8 mx-auto">
                                 <div className="animeDetailsContainer">
-                                    <h1 className="text-start ps-4">My Hero Academia</h1>
+                                    <div>
+                                        <h1 className="text-start ps-4">My Hero Academia</h1>
+                                    </div>
                                     <div className="divider">
                                     </div>
                                     <div className="animeDetails d-flex pt-3 ps-4">
                                         <div className="d-flex flex-column align-items-center">
                                             <img src={anime[0].image}/>
-                                        <p className="pt-2"><span>Score: </span>{anime[0].score}<GiSeahorse size="3rem" color="#FFFFFF"/></p>
+                                        <p className="pt-2 text-white fs-2"><span>Score: </span>{anime[0].score}<GiSeahorse size="3rem" color="#FFFFFF"/></p>
                                         </div>
                                         <div className="animeDetailsText ps-4">
                                             <p><span>Title: </span>{anime[0].title}</p>
