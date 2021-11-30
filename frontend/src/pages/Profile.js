@@ -32,120 +32,101 @@ const Profile = ({ currentUser }) => {
                 </div>
               </div>
               <div className="col-md-9 px-5">
+                {/* Watched anime wrapper START */}
                 <div className="row">
                   <div className="card card-profile mb-3">
-                    <h1 className="text-center pt-4">My Anime List</h1>
-                    <hr/>
-                    {currentUser && currentUser.animeList.filter(el => el.seen === true).length > 0 ?
-                      <div className="wrapper mx-5 py-2">
-                        <section id="section1">
-                          <a href="#section3">‹</a>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
+                    <h1 className="text-center pt-4 mb-0">Watched anime</h1>
+                    <hr className="mb-0"/>
+                    {currentUser && currentUser.animeList ?
+                      <div className="animeSlider">
+                        <div className="animeSlider__inner">
+                          {/* Anime tile */}
+                          <div className="tile">
+                            <div className="tile__media">
+                              <img className="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-7.jpg" />
+                            </div>
+                            <div className="tile__details">
+                              <div className="tile__title">
+                                Top Gear
+                              </div>
+                            </div>
                           </div>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
+
+                          <div className="tile">
+                            <div className="tile__media">
+                              <img className="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-7.jpg" />
+                            </div>
+                            <div className="tile__details">
+                              <div className="tile__title">
+                                Top Gear
+                              </div>
+                            </div>
                           </div>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
+
+                          <div className="tile">
+                            <div className="tile__media">
+                              <img className="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-7.jpg" />
+                            </div>
+                            <div className="tile__details">
+                              <div className="tile__title">
+                                Top Gear
+                              </div>
+                            </div>
                           </div>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
+
+                          <div className="tile">
+                            <div className="tile__media">
+                              <img className="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-7.jpg" />
+                            </div>
+                            <div className="tile__details">
+                              <div className="tile__title">
+                                Top Gear
+                              </div>
+                            </div>
                           </div>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
+
+                          <div className="tile">
+                            <div className="tile__media">
+                              <img className="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-7.jpg" />
+                            </div>
+                            <div className="tile__details">
+                              <div className="tile__title">
+                                Top Gear
+                              </div>
+                            </div>
                           </div>
-                          <a href="#section2">›</a>
-                        </section>
-                        <section id="section2">
-                          <a href="#section1" className="arrow__btn">‹</a>
-                          <div className="itemAnime">
-                            <img src="" alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
+
+                          <div className="tile">
+                            <div className="tile__media">
+                              <img className="tile__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/70390/show-7.jpg" />
+                            </div>
+                            <div className="tile__details">
+                              <div className="tile__title">
+                                Top Gear
+                              </div>
+                            </div>
                           </div>
-                          <a href="#section3" className="arrow__btn">›</a>
-                        </section>
-                        <section id="section3">
-                          <a href="#section2" className="arrow__btn">‹</a>
-                          <div className="itemAnime">
-                            <img src="" alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
-                          </div>
-                          <a href="#section1" className="arrow__btn">›</a>
-                        </section>
+                        </div>
                       </div>
-                      :
+                    :
                       <div className="d-flex align-items-center p-5 flex-column">
-                        <p style={{color: "gray"}}>Looks like you haven't added any anime yet :( </p>
-                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
+                        <p style={{color: "gray"}}>Looks like you haven't added any friends yet :( </p>
+                        <button className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
                       </div>
                     }
                   </div>
                 </div>
-                <div className="row">
-                  <div className="card card-profile mb-3">
-                    <h1 className="text-center pt-4">Pending Anime</h1>
-                    <hr/>
-                    {currentUser && currentUser.animeList.filter(el => el.seen === false).length > 0 ?
-                      <div className="wrapper mx-5 py-2">
-                        <section id="section1">
-                          <a href="#section3">‹</a>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
-                          </div>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
-                          </div>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
-                          </div>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
-                          </div>
-                          <div className="itemAnime">
-                            <img src={ejemplo} alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
-                          </div>
-                          <a href="#section2">›</a>
-                        </section>
-                        <section id="section2">
-                          <a href="#section1" className="arrow__btn">‹</a>
-                          <div className="itemAnime">
-                            <img src="" alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
-                          </div>
-                          <a href="#section3" className="arrow__btn">›</a>
-                        </section>
-                        <section id="section3">
-                          <a href="#section2" className="arrow__btn">‹</a>
-                          <div className="itemAnime">
-                            <img src="" alt="anime"/>
-                            <p className="animeTitle">My Hero Academia</p>
-                          </div>
-                          <a href="#section1" className="arrow__btn">›</a>
-                        </section>
-                      </div>
-                      :
-                      <div className="d-flex align-items-center p-5 flex-column">
-                        <p style={{color: "gray"}}>Looks like you haven't added any anime yet :( </p>
-                        <button type="button" className="btn btn-primary" onClick={() => changeRoute('/addAnime')}>Add anime</button>
-                      </div>
-                    }
-                  </div>
-                </div>
+                {/* Watched anime wrapper END */}
+
+                {/* Pending anime wrapper START */}
+
+                {/* Pending anime wrapper END */}
+
+                {/* Friend wrapper START */}
                 <div className="row">
                   <div className="card card-profile">
                     <h1 className="text-center pt-4">My Friends</h1>
-                    <hr/>
+                    <hr className="mb-0"/>
                     {currentUser && currentUser.friends ?
                       <div className="wrapper mx-5">
                         <section id="section1_car2">
