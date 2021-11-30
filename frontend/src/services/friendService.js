@@ -12,13 +12,33 @@ const getUser = (user) => {
 
 const addFriend = (user) => {
     const headers = authHeader();
-    console.log(user);
     const data = { addUserName: user };
 
     return axios.post(API_URL + "makeFriendRequest", data, {headers});
+};
+
+const handleFriendRequest = (user, accepted) => {
+    const headers = authHeader();
+    const data = { 
+        addUserName: user,
+        accepted: accepted
+    }
+
+    return axios.post(API_URL + "handleFriendRequest", data, {headers});
+}
+
+const deleteFriend = (user) => {
+  const headers = authHeader();
+  const data = { 
+      deleteUserName: user,
+  }
+
+  return axios.post(API_URL + "deleteFriend", data, {headers});
 }
 
 export default {
     getUser,
-    addFriend
+    addFriend,
+    handleFriendRequest,
+    deleteFriend
 };

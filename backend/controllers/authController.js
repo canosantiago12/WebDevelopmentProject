@@ -55,6 +55,9 @@ exports.signin = (req, res) => {
       email: user.email,
       profilePicture: user.profilePicture,
       animeList: user.animeList,
+      friends: user.friends,
+      friendRequestsReceived: user.friendRequestsReceived,
+      friendRequestsSent: user.friendRequestsSent,
       accessToken: token
     });
   });
@@ -70,6 +73,9 @@ exports.getUser = async (req, res) => {
     email: user.email,
     profilePicture: user.profilePicture,
     animeList: user.animeList,
+    friends: user.friends,
+    friendRequestsReceived: user.friendRequestsReceived,
+    friendRequestsSent: user.friendRequestsSent,
     accessToken: token
   })
 };

@@ -19,7 +19,10 @@ const User = mongoose.model(
       type: String,
       required: true
     },
-    friends: [String],
+    friends: [{
+      userName: String,
+      profilePicture: String,
+    }],
     friendRequestsSent: [String],
     friendRequestsReceived: [String],
     animeList: [{

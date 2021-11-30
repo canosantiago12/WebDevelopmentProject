@@ -43,8 +43,8 @@ exports.handleFriendRequest = async (req, res) => {
   userToAdd[0].friendRequestsSent = userToAdd[0].friendRequestsSent.filter(el => el !== userAccepting.userName);
 
   if (req.body.accepted) {
-    userAccepting.friends.push(userToAdd[0].userName);
-    userToAdd[0].friends.push(userAccepting.userName);
+    userAccepting.friends.push({userName: userToAdd[0].userName, profilePicture: userToAdd[0].profilePicture});
+    userToAdd[0].friends.push({userName: userAccepting.userName, profilePicture: userAccepting.profilePicture});
   }
   
   await userAccepting.save();
@@ -56,11 +56,11 @@ exports.handleFriendRequest = async (req, res) => {
 }
 
 exports.deleteFriend = async (req, res) => {
-  const friendToDelete = await User.find({ userName: req.body.deleteUserId });
+  const friendToDelete = await User.find({ userName: req.body.deleteUserName });
   const userDeleting = await User.findById(req.userId);
 
-  friendToDelete[0].friends = friendToDelete[0].friends.filter(el => el !== userDeleting.userName);
-  userDeleting.friends = userDeleting.friends.filter(el => el !== friendToDelete[0].userName);
+  friendToDelete[0].friends = friendToDelete[0].friends.filter(el => el.userName !== userDeleting.userName);
+  userDeleting.friends = userDeleting.friends.filter(el => el.userName !== friendToDelete[0].userName);
   
   await friendToDelete[0].save();
   await userDeleting.save();

@@ -2,15 +2,37 @@ import React, { useState, useEffect } from "react";
 import { ProfilePage } from './PageStyle';
 import { useNavigate } from 'react-router-dom';
 import AuthService from '../services/auth.service';
+import FriendService from "../services/friendService";
 
 import ejemplo from '../assets/images/MHA.png';
 
 const Profile = ({ currentUser }) => {
+  const [friend, setFriend] = useState();
   const [count, setCount] = useState(0);
   const history = useNavigate();
 
   const changeRoute = (props) => {
     history(props);
+  }
+
+  const handleFriendRequest = (user, accepted) => {
+    FriendService.handleFriendRequest(user, accepted)
+    .then((res) => {
+      console.log(res);
+      AuthService.updateUser()
+      .then((res) => {
+        console.log(res);
+        window.location.reload();
+        const msg = accepted ? 'accepted' : 'rejected';
+        alert('Friend request ' + msg);
+      },
+      (err) => {
+        console.log(err);
+      });
+    },
+    (err) => {
+      console.log(err)
+    });
   }
 
   return (
@@ -38,7 +60,7 @@ const Profile = ({ currentUser }) => {
                           <strong>Email:</strong> { currentUser && currentUser.email}
                         </p>
                         <p>
-                          <strong>Total animes watched:</strong> { currentUser && currentUser.animeList.length }
+                          <strong>Total animes watched:</strong> { currentUser && currentUser.animeList.filter(el => el.seen === true).length }
                         </p>
                       </div>
                     </div>
@@ -47,7 +69,25 @@ const Profile = ({ currentUser }) => {
                 <div className="row">
                   <div className="card card-profile cardBG p-4 mt-3" style={{width: "100%"}}>
                     <h1>Your Friend Requests:</h1>
-                    <hr />
+                      {currentUser && currentUser.friendRequestsReceived && currentUser.friendRequestsReceived.map(user => {
+                        return (
+                          <div className="row">
+                            <div className="col-12">
+                              <div className="card userSingle mt-2 mx-2">
+                                <div className="col-md-12 d-flex my-auto">
+                                  <div className="fs-5">
+                                    <p><b>Username: </b>{user}</p>
+                                  </div>
+                                  <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
+                                    <button type="button" className="btn btn-primary rounded me-2" onClick={() => handleFriendRequest(user, true)}>Accept</button>
+                                    <button type="button" className="btn btn-primary rounded me-2" onClick={() => handleFriendRequest(user, false)}>Reject</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })} 
                   </div>
                 </div>
               </div>
@@ -152,94 +192,56 @@ const Profile = ({ currentUser }) => {
                 </div>
                 {/* Pending anime wrapper END */}
 
-                {/* Friend wrapper START */}
+                {/* Friends anime wrapper START */}
                 <div className="row">
-                  <div className="card card-profile">
-                    <h1 className="text-center pt-4">My Friends</h1>
-                    <hr className="mb-0"/>
-                    {currentUser && currentUser.friends ?
-                      <div className="wrapper mx-5">
-                        <section id="section1_car2">
-                          <a href="#section3_car2" className="arrow__btn">‹</a>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
+                  <div className="card card-profile mb-3">
+                    {console.log(currentUser)}
+                    {currentUser && currentUser.friends.length > 0 ?
+                      <>
+                        <div className="row mt-4">
+                          <div className="col-md-12 d-flex justify-content-center px-5">
+                            <h1 className="text-center mb-0">Friends</h1>
+                            <button className="btn btn-primary ms-auto" onClick={() => changeRoute('/addFriend')}>Add friend</button>
                           </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
+                        </div>
+                        <hr className="mb-0"/>
+                        <div className="animeSlider">
+                          <div className="animeSlider__inner py-3">
+                            {/* Anime tile */}
+                            {currentUser.friends.map(el => {
+                              return(
+                                <div className="tile">
+                                  <div className="tile__media">
+                                    <img className="tile__img" src={el.profilePicture} alt={el.userName} />
+                                  </div>
+                                  <div className="tile__details">
+                                    <div className="tile__title">
+                                      {el.userName}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })}
                           </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <a href="#section2_car2" className="arrow__btn">›</a>
-                        </section>
-                        <section id="section2_car2">
-                          <a href="#section1_car2" className="arrow__btn">‹</a>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <a href="#section3_car2" className="arrow__btn">›</a>
-                        </section>
-                        <section id="section3_car2">
-                          <a href="#section2_car2" className="arrow__btn">‹</a>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <div className="itemFriend">
-                            <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile-img" className="profile-img-card"/>
-                            <p className="text-center">CACA</p>
-                          </div>
-                          <a href="#section1_car2" className="arrow__btn">›</a>
-                        </section>
-                      </div>
+                        </div>
+                      </>
                     :
-                      <div className="d-flex align-items-center p-5 flex-column">
-                        <p style={{color: "gray"}}>Looks like you haven't added any friends yet :( </p>
-                        <button className="btn btn-primary" onClick={() => changeRoute('/addFriend')}>Add friend</button>
-                      </div>
+                      <>
+                        <div className="row mt-4">
+                          <div className="col-md-12 d-flex justify-content-center px-5">
+                            <h1 className="text-center mb-0">Friends</h1>
+                          </div>
+                        </div>
+                        <hr className="mb-0"/>
+                        <div className="d-flex align-items-center p-5 flex-column">
+                          <p style={{color: "gray"}}>Looks like you haven't added any friends yet :( </p>
+                          <button className="btn btn-primary" onClick={() => changeRoute('/addFriend')}>Add friend</button>
+                        </div>
+                      </>
                     }
                   </div>
                 </div>
+                {/* Friends wrapper END */}
               </div>
             </div>
           </div>

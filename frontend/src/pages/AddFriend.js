@@ -22,11 +22,29 @@ const AddFriend= ({ currentUser }) => {
         });
     };
 
+    const checkIfFriend = (user) => {
+      for (let i = 0; i < currentUser.friends.length; i += 1) {
+          if (currentUser.friends[i].userName === user)
+            return true;
+      }
+      return false;
+    }
+
+    const checkIfPendingRequest = (user) => {
+      for (let i = 0; i < currentUser.friendRequestsSent.length; i += 1) {
+          if (currentUser.friendRequestsSent[i] === user)
+            return true;
+      }
+      for (let i = 0; i < currentUser.friendRequestsReceived.length; i += 1) {
+        if (currentUser.friendRequestsReceived[i] === user)
+          return true;
+      }
+      return false;
+    }
+
     const sendFriendRequest = (user) => {
-        console.log('asdfasdf');
         FriendService.addFriend(user)
         .then((res) => {
-            console.log(res);
             AuthService.updateUser()
             .then((res) => {
                 console.log(res);
@@ -41,6 +59,24 @@ const AddFriend= ({ currentUser }) => {
             console.log(err)
         });
     };
+
+    const deleteFriend = (user) => {
+      FriendService.deleteFriend(user)
+      .then((res) => {
+          AuthService.updateUser()
+          .then((res) => {
+              console.log(res);
+              window.location.reload();
+              alert(`Friend deleted`)
+          },
+          (err) => {
+              console.log(err);
+          });
+      },
+      (err) => {
+          console.log(err)
+      });
+  };
 
     return (
         <>
@@ -70,9 +106,21 @@ const AddFriend= ({ currentUser }) => {
                                                             <div className="fs-5">
                                                                 <p><b>Username: </b>{user.userName}</p>
                                                             </div>
-                                                            <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
-                                                                <button type="button" className="btn btn-primary rounded me-2" onClick={() => sendFriendRequest(user.userName)}>Send Friend Request</button>
-                                                            </div>
+                                                            {currentUser && checkIfPendingRequest(user.userName) &&
+                                                                <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
+                                                                    <button type="button" className="btn btn-primary rounded me-2" disabled>Pending invite...</button>
+                                                                </div>
+                                                            }
+                                                            {currentUser && !checkIfFriend(user.userName) && !checkIfPendingRequest(user.userName) &&
+                                                                <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
+                                                                    <button type="button" className="btn btn-primary rounded me-2" onClick={() => sendFriendRequest(user.userName)}>Send Friend Request</button>
+                                                                </div>
+                                                            }
+                                                            {currentUser && checkIfFriend(user.userName) && !checkIfPendingRequest(user.userName) &&
+                                                                <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
+                                                                    <button type="button" className="btn btn-primary rounded me-2" onClick={() => deleteFriend(user.userName)}>Delete Friend</button>
+                                                                </div>
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
