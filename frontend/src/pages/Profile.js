@@ -214,7 +214,7 @@ const Profile = ({ currentUser }) => {
                             {/* Friend tile */}
                             {currentUser.friends.map(el => {
                               return(
-                                <div className="tileFriend" onClick={() => changeRoute('/friendDetails')}>
+                                <div className="tileFriend" onClick={() => changeRoute(`/friendDetails?friend=${el.userName}`)}>
                                   <div className="tileFriend__media">
                                     <img className="tileFriend__img" src={el.profilePicture} alt={el.userName} />
                                   </div>

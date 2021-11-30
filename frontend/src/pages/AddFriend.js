@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AddPage } from './PageStyle';
 import FriendService from "../services/friendService";
 import AuthService from "../services/auth.service";
@@ -6,11 +7,16 @@ import AuthService from "../services/auth.service";
 const AddFriend= ({ currentUser }) => {
     const [userName, setUserName] = useState();
     const [users, setUsers] = useState();
+    const history = useNavigate();
 
     const onChangeSearch = (e) => {
         const username = e.target.value;
         setUserName(username);
     };
+
+    const toUserDetail = (name) => {
+        history(`/friendDetails?friend=${name}`)
+    }
   
     const searchUser = () => {
         FriendService.getUser(userName)
@@ -98,7 +104,7 @@ const AddFriend= ({ currentUser }) => {
                                         return (
                                             <div className="row">
                                                 <div className="col-12">
-                                                    <div className="card userSingle mt-2 mx-2">
+                                                    <div className="card userSingle mt-2 mx-2" onClick={() => toUserDetail(user.userName)}>
                                                         <div className="col-md-4 d-flex">
                                                             <img className="mx-auto my-3 rounded-circle" src={user.profilePicture} alt={"profile_picture"}/>
                                                         </div>
