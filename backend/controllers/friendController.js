@@ -9,7 +9,12 @@ exports.findUser = async (req, res) => {
   res.status(200).send(foundUsers.map(el => ({
     userId: el._id,
     userName: el.userName,
-    profilePicture: el.profilePicture
+    email: el.email,
+    profilePicture: el.profilePicture,
+    animeList: el.animeList,
+    friends: el.friends,
+    friendRequestsSent: el.friendRequestsSent,
+    friendRequestsReceived: el.friendRequestsReceived
   })));
 }
 
