@@ -34,8 +34,8 @@ function App() {
         <Route path='/profile' element={<Profile currentUser={currentUser}/>} />
         <Route path='/addAnime' element={<AddAnime currentUser={currentUser}/>} />
         <Route path='/addFriend' element={<AddFriend currentUser={currentUser}/>} />
-        <Route path='/animeDetails' element={<AnimeDetails />} />
-        <Route path='/friendDetails' element={<FriendDetails />} />
+        <Route path='/animeDetails' element={<AnimeDetails currentUser={currentUser}/>} />
+        <Route path='/friendDetails' element={<FriendDetails currentUser={currentUser}/>} />
       </Routes>
     </Router>
   );

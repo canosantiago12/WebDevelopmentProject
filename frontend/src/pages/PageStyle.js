@@ -4,8 +4,8 @@ import imgLanding from '../assets/images/animeCollage.jpg';
 const backgroundMovingAnimation = keyframes`
     0% { background-position: 0px 0px; }
     25% { background-position: -384px 0px; }
-    50% { background-position: -384px -200px; }
-    75% { background-position: 0px -200px; }
+    50% { background-position: -384px -185px; }
+    75% { background-position: 0px -185px; }
     100% { background-position: 0px 0px; }
 `
 
@@ -13,7 +13,7 @@ export const LandingPage = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 89.7vh;
+    height: 91.8vh;
     background: url(${ imgLanding }) no-repeat center;
     animation: ${ backgroundMovingAnimation } 30s ease infinite;
     position: relative;
@@ -24,7 +24,7 @@ export const LoginPage = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 89.7vh;
+    height: 91.8vh;
     position: relative;
     background: url(${ imgLanding }) no-repeat center;
     animation: ${ backgroundMovingAnimation } 30s ease infinite;
@@ -34,7 +34,7 @@ export const RegisterPage = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 89.7vh;
+    height: 91.8vh;
     position: relative;
     background: url(${ imgLanding }) no-repeat center;
     animation: ${ backgroundMovingAnimation } 30s ease infinite;

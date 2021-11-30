@@ -20,15 +20,35 @@ const Profile = ({ currentUser }) => {
           <div className="container-fluid px-0 px-sm-3">
             <div className="row">
               <div className="col-md-3 px-4 pb-2">
-                <div className="card card-profile p-4" style={{width: "100%"}}>
-                  <h1>Your Profile:</h1>
-                  <img src={currentUser && currentUser.profilePicture} className="profile-img-card my-3" alt="profile_pic" style={{height: "20vh", width: "20vh"}}/>
-                  <h2>
-                    <strong>{currentUser && currentUser.userName}</strong>
-                  </h2>
-                  <p>
-                    <strong>Email:</strong> { currentUser && currentUser.email}
-                  </p>
+                <div className="row">
+                  <div className="newCard" style={{width: "100%"}}>
+                    <div className="imgBx">
+                      <img src={currentUser && currentUser.profilePicture} alt="profile_pic" style={{height: "20vh", width: "20vh"}}/>
+                    </div>
+                    <div className="contentBx">
+                      <div className="contentTitle">
+                        <h1 className="pb-3">Your Profile: </h1>
+                        <hr />
+                      </div>
+                      <div className="contentBody d-flex flex-column">
+                        <h2>
+                          <strong>{currentUser && currentUser.userName}</strong>
+                        </h2>
+                        <p>
+                          <strong>Email:</strong> { currentUser && currentUser.email}
+                        </p>
+                        <p>
+                          <strong>Total animes watched:</strong> { currentUser && currentUser.animeList.length }
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="card card-profile cardBG p-4 mt-3" style={{width: "100%"}}>
+                    <h1>Your Friend Requests:</h1>
+                    <hr />
+                  </div>
                 </div>
               </div>
               <div className="col-md-9 px-5">

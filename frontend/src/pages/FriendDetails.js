@@ -1,11 +1,15 @@
 import React from 'react';
 import { DetailsPage } from './PageStyle';
 
-const FriendDetails = () => {
+const FriendDetails = ({ currentUser }) => {
     return (
         <>
             <DetailsPage>
-                <p>DETALLES AMIGO</p>
+                <div className="main-content">
+                    <div className="container-fluid px-0 px-sm-3">
+                        
+                    </div>
+                </div>
             </DetailsPage>
         </>
     )

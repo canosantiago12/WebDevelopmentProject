@@ -120,7 +120,7 @@ const AddAnime = ({ currentUser }) => {
                                                                       </div>
                                                                   :
                                                                       <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
-                                                                          <button type="button" className="btn btn-primary rounded me-2" onClick={() => deleteFromAnimeList(anime)}>Delete</button>
+                                                                          <button type="button" className="btn btn-primary btn-delete rounded me-2" onClick={() => deleteFromAnimeList(anime)}>Delete</button>
                                                                       </div>
                                                                 }
                                                             </div>
