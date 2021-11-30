@@ -6,6 +6,7 @@ const API_URL = "http://localhost:8081/api/anime/";
 const addAnime = (anime, list) => {
     const headers = authHeader();
     const data = { 
+      animeId: anime.mal_id,
       title: anime.title,
       image: anime.image_url,
       airing: anime.airing,
