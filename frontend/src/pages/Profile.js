@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import AuthService from '../services/auth.service';
 import FriendService from "../services/friendService";
 
-import ejemplo from '../assets/images/MHA.png';
-
 const Profile = ({ currentUser }) => {
   const [friend, setFriend] = useState();
   const [count, setCount] = useState(0);
