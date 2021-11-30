@@ -660,3 +660,24 @@ a:hover {
 .tile:hover~.tile {
   transform: translate3d(70px, 0, 0);
 }
+
+.animeDetailsContainer h1 {
+  color: #FFFFFF;
+}
+
+.animeDetailsContainer .divider {
+  height: 5px;
+  background: #D94D31;
+}
+
+.animeDetails img {
+  height: 417px;
+  width: 300px;
+}
+
+.animeDetails span {
+  color: #D94D31;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
