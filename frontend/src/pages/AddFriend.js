@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AddPage } from './PageStyle';
 import FriendService from "../services/friendService";
+import AuthService from "../services/auth.service";
 
 const AddFriend= ({ currentUser }) => {
     const [userName, setUserName] = useState();
@@ -14,12 +15,32 @@ const AddFriend= ({ currentUser }) => {
     const searchUser = () => {
         FriendService.getUser(userName)
         .then((res) => {
-          setUsers(res.data);
+            setUsers(res.data);
         },
         (err) => {
-          console.log(err)
+            console.log(err)
         });
-    }
+    };
+
+    const sendFriendRequest = (user) => {
+        console.log('asdfasdf');
+        FriendService.addFriend(user)
+        .then((res) => {
+            console.log(res);
+            AuthService.updateUser()
+            .then((res) => {
+                console.log(res);
+                window.location.reload();
+                alert(`Friend request sent to ${user}`)
+            },
+            (err) => {
+                console.log(err);
+            });
+        },
+        (err) => {
+            console.log(err)
+        });
+    };
 
     return (
         <>
@@ -49,11 +70,14 @@ const AddFriend= ({ currentUser }) => {
                                                             <div className="fs-5">
                                                                 <p><b>Username: </b>{user.userName}</p>
                                                             </div>
+                                                            <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
+                                                                <button type="button" className="btn btn-primary rounded me-2" onClick={() => sendFriendRequest(user.userName)}>Send Friend Request</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        )
+                                        );
                                     })}
                                 </div>
                             </div>
