@@ -12,17 +12,12 @@ const NavBar = ({ currentUser }) => {
         history("/");
         window.location.reload();
     };
-
-    const toProfile = () => {
-      history("/profile");
-      window.location.reload();
-    }
     
     return (
         <>
             <Nav>
                 {currentUser ?
-                    <NavLink to="/profile" onClick={() => toProfile()}>
+                    <NavLink to="/profile">
                         <img src={Logo} alt='logo'/>
                     </NavLink>
                 :

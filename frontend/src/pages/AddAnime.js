@@ -15,6 +15,14 @@ const AddAnime = ({ currentUser }) => {
         setAnimeName(animename);
     };
 
+    const checkIfExists = (anime) => {
+        for (let i = 0; i < currentUser.animeList.length; i += 1) {
+            if (currentUser.animeList[i].title === anime.title)
+              return true;
+        }
+        return false;
+    }
+
     const searchAnime = () => {
         axios.get(`https://api.jikan.moe/v3/search/anime?q=${animeName}&page=1`)
         .then((res) => {
@@ -34,6 +42,8 @@ const AddAnime = ({ currentUser }) => {
             AuthService.updateUser()
             .then((res) => {
                 console.log(res);
+                window.location.reload();
+                alert('Anime added succesfully!')
             },
             (err) => {
                 console.log(err);
@@ -42,7 +52,26 @@ const AddAnime = ({ currentUser }) => {
         (err) => {
             console.log(err);
         });
-    }
+    };
+
+    const deleteFromAnimeList = (anime) => {
+        AnimeService.deleteAnime(anime)
+        .then((res) => {
+            console.log(res);
+            AuthService.updateUser()
+            .then((res) => {
+                console.log(res);
+                window.location.reload();
+                alert('Anime deleted succesfully!')
+            },
+            (err) => {
+                console.log(err);
+            });
+        },
+        (err) => {
+            console.log(err);
+        });
+    };
 
     return (
         <>
@@ -84,10 +113,16 @@ const AddAnime = ({ currentUser }) => {
                                                                     <p><b>Score: </b>{anime.score} <GiSeahorse size="1rem" color="#FFFFFF"/></p>
                                                                     <p><b>Content Rating: </b>{anime.rated}</p>
                                                                 </div>
-                                                                <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
-                                                                    <button type="button" className="btn btn-primary rounded me-2" onClick={() => addToAnimeList(anime, 'Seen')}>Add to Seen</button>
-                                                                    <button type="button" className="btn btn-primary rounded" onClick={() => addToAnimeList(anime, 'Pending')}>Add to Pending</button>
-                                                                </div>
+                                                                {currentUser && !checkIfExists(anime) ? 
+                                                                      <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
+                                                                          <button type="button" className="btn btn-primary rounded me-2" onClick={() => addToAnimeList(anime, 'Seen')}>Add to Seen</button>
+                                                                          <button type="button" className="btn btn-primary rounded" onClick={() => addToAnimeList(anime, 'Pending')}>Add to Pending</button>
+                                                                      </div>
+                                                                  :
+                                                                      <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
+                                                                          <button type="button" className="btn btn-primary rounded me-2" onClick={() => deleteFromAnimeList(anime)}>Delete</button>
+                                                                      </div>
+                                                                }
                                                             </div>
                                                         </div>
                                                     </div>

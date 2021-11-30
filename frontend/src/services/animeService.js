@@ -19,6 +19,16 @@ const addAnime = (anime, list) => {
     return axios.post(API_URL + "addAnime", data, {headers});
 };
 
+const deleteAnime = (anime) => {
+    const headers = authHeader();
+    const data = {
+        title: anime.title
+    };
+
+    return axios.post(API_URL + 'deleteAnime', data, {headers});
+}
+
 export default {
     addAnime,
+    deleteAnime
 };
