@@ -102,13 +102,13 @@ const AddFriend= ({ currentUser }) => {
                                                         <div className="col-md-4 d-flex">
                                                             <img className="mx-auto my-3 rounded-circle" src={user.profilePicture} alt={"profile_picture"}/>
                                                         </div>
-                                                        <div className="col-md-8 d-flex my-auto">
+                                                        <div className="col-md-8 d-flex align-items-center my-auto">
                                                             <div className="fs-5">
-                                                                <p><b>Username: </b>{user.userName}</p>
+                                                                <p className="my-auto"><b>Username: </b>{user.userName}</p>
                                                             </div>
                                                             {currentUser && checkIfPendingRequest(user.userName) &&
                                                                 <div className="btn-group ms-auto me-4" role="group" aria-label="Basic example">
-                                                                    <button type="button" className="btn btn-primary rounded me-2" disabled>Pending invite...</button>
+                                                                    <button type="button" className="btn btn-primary rounded me-2 disabled">Pending invite...</button>
                                                                 </div>
                                                             }
                                                             {currentUser && !checkIfFriend(user.userName) && !checkIfPendingRequest(user.userName) &&
