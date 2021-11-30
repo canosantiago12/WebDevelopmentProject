@@ -149,7 +149,7 @@ const Profile = ({ currentUser }) => {
                       <>
                         <div className="row mt-4">
                           <div className="col-md-12 d-flex justify-content-center px-5">
-                            <h1 className="text-center mb-0">Watched Anime</h1>
+                            <h1 className="text-center mb-0">Pending Anime</h1>
                             <button className="btn btn-primary ms-auto" onClick={() => changeRoute('/addAnime')}>Add anime</button>
                           </div>
                         </div>
@@ -159,7 +159,7 @@ const Profile = ({ currentUser }) => {
                             {/* Anime tile */}
                             {currentUser.animeList.filter(el => el.seen === false).map(el => {
                               return(
-                                <div className="tile">
+                                <div className="tile" onClick={() => changeRoute('/animeDetails')}>
                                   <div className="tile__media">
                                     <img className="tile__img" src={el.image} alt={el.title} />
                                   </div>
@@ -195,7 +195,6 @@ const Profile = ({ currentUser }) => {
                 {/* Friends anime wrapper START */}
                 <div className="row">
                   <div className="card card-profile mb-3">
-                    {console.log(currentUser)}
                     {currentUser && currentUser.friends.length > 0 ?
                       <>
                         <div className="row mt-4">
@@ -205,17 +204,17 @@ const Profile = ({ currentUser }) => {
                           </div>
                         </div>
                         <hr className="mb-0"/>
-                        <div className="friendSlider">
-                          <div className="friendSlider__inner py-3">
-                            {/* Anime tile */}
+                        <div className="animeSlider ps-5">
+                          <div className="animeSlider__inner py-3">
+                            {/* Friend tile */}
                             {currentUser.friends.map(el => {
                               return(
-                                <div className="friendTile">
-                                  <div className="friendTile__media">
-                                    <img className="tile__img" src={el.profilePicture} alt={el.userName} />
+                                <div className="tileFriend" onClick={() => changeRoute('/friendDetails')}>
+                                  <div className="tileFriend__media">
+                                    <img className="tileFriend__img" src={el.profilePicture} alt={el.userName} />
                                   </div>
-                                  <div className="friendTile__details">
-                                    <div className="friendTile__title">
+                                  <div className="tileFriend__details">
+                                    <div className="tileFriend__title text-center">
                                       {el.userName}
                                     </div>
                                   </div>

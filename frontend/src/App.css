@@ -567,6 +567,7 @@ a:hover {
   overflow-y: hidden;
   width: 100%;
   margin-bottom: 10px;
+  padding-left: 70px;
 }
 
 .animeSlider::-webkit-scrollbar {
@@ -661,8 +662,83 @@ a:hover {
   transform: translate3d(70px, 0, 0);
 }
 
-.friendSlider {
-  
+.tileFriend {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 450ms all;
+  transform-origin: center left;
+}
+
+.tileFriend__img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+  object-fit: fill;
+  border-radius: 50%;
+  border: 2px dotted #dbdbdb;
+}
+
+.tileFriend__details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  opacity: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+  transition: 450ms opacity;
+  overflow: hidden;
+}
+
+.tileFriend__details:after,
+.tileFriend__details:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: #000;
+}
+
+.tileFriend:hover .tileFriend__details {
+  opacity: 1;
+}
+
+.tileFriend__title {
+  color: rgb(184, 184, 184);
+  position: absolute;
+  bottom: 0;
+  width: 140px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  padding: 10px;
+}
+
+.tileFriend__title:hover {
+  color: #FFFFFF;
+  overflow: visible; 
+  white-space: normal;
+  height:auto;
+}
+
+.animeSlider__inner:hover .tileFriend {
+  opacity: 0.3;
+}
+
+.animeSlider__inner:hover .tileFriend:hover {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.tileFriend:hover~.tileFriend {
+  transform: translate3d(70px, 0, 0);
 }
 
 .animeDetailsContainer h1 {
@@ -686,3 +762,6 @@ a:hover {
   letter-spacing: 2px;
 }
 
+.form-control {
+  font-family: 'Monaco', monospace;
+}
