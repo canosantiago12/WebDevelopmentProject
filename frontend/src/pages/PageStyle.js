@@ -66,3 +66,8 @@ export const AddPage = styled.div`
     height: 100%;
     background: #000000;
 `
+export const DetailsPage = styled.div`
+    width: 100%;
+    height: 100%;
+    background: #000000;
+`

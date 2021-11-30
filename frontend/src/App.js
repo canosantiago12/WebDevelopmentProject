@@ -10,6 +10,8 @@ import Profile from './pages/Profile';
 import AddAnime from './pages/AddAnime';
 import AddFriend from './pages/AddFriend';
 import AuthService from './services/auth.service';
+import AnimeDetails from './pages/AnimeDetails';
+import FriendDetails from './pages/FriendDetails';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -32,6 +34,8 @@ function App() {
         <Route path='/profile' element={<Profile currentUser={currentUser}/>} />
         <Route path='/addAnime' element={<AddAnime currentUser={currentUser}/>} />
         <Route path='/addFriend' element={<AddFriend currentUser={currentUser}/>} />
+        <Route path='/animeDetails' element={<AnimeDetails />} />
+        <Route path='/friendDetails' element={<FriendDetails />} />
       </Routes>
     </Router>
   );

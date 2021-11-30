@@ -49,7 +49,7 @@ const Profile = ({ currentUser }) => {
                             {/* Anime tile */}
                             {currentUser.animeList.filter(el => el.seen === true).map(el => {
                               return(
-                                <div className="tile">
+                                <div className="tile" onClick={() => changeRoute('/animeDetails')}>
                                   <div className="tile__media">
                                     <img className="tile__img" src={el.image} alt={el.title} />
                                   </div>
